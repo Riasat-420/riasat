@@ -2,8 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
-import logoDark from "@/assets/logo-dark.png";
-import logoLight from "@/assets/logo-light.png";
+import logo from "@/assets/logo.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,7 +19,7 @@ const Header = () => {
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
         <a href="#" className="flex items-center">
           <img 
-            src={theme === "dark" ? logoDark : logoLight} 
+            src={logo} 
             alt="Dev Riasat" 
             className="h-10 w-auto object-contain"
           />
