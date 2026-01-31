@@ -26,6 +26,25 @@ const services = [
   },
 ];
 
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.1,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: { opacity: 0, x: -30 },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5 },
+  },
+};
+
 const ServicesSection = () => {
   const [openId, setOpenId] = useState<number | null>(2);
 
@@ -35,44 +54,59 @@ const ServicesSection = () => {
         {/* Section header */}
         <div className="flex justify-between items-start mb-16">
           <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 0.7 }}
             className="text-[clamp(4rem,15vw,12rem)] font-display font-bold leading-none text-muted-foreground/20"
           >
             SERVICE
           </motion.h2>
-          <span className="text-sm text-muted-foreground uppercase tracking-wider mt-4">
+          <motion.span
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+            className="text-sm text-muted-foreground uppercase tracking-wider mt-4"
+          >
             Our Services
-          </span>
+          </motion.span>
         </div>
 
         {/* Services accordion */}
-        <div className="max-w-4xl">
-          {services.map((service, index) => (
+        <motion.div
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          className="max-w-4xl"
+        >
+          {services.map((service) => (
             <motion.div
               key={service.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              variants={itemVariants}
               className="border-b border-border"
             >
-              <button
+              <motion.button
                 onClick={() => setOpenId(openId === service.id ? null : service.id)}
+                whileHover={{ x: 10 }}
                 className="w-full py-6 flex items-center justify-between text-left group"
               >
                 <h3 className="text-3xl md:text-5xl font-display font-bold group-hover:text-primary transition-colors">
                   {service.title}
                 </h3>
-                <span className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:border-primary group-hover:text-primary transition-colors">
+                <motion.span
+                  animate={{ rotate: openId === service.id ? 180 : 0 }}
+                  transition={{ duration: 0.3 }}
+                  className="w-10 h-10 rounded-full border border-border flex items-center justify-center group-hover:border-primary group-hover:text-primary transition-colors"
+                >
                   {openId === service.id ? (
                     <Minus className="w-5 h-5" />
                   ) : (
                     <Plus className="w-5 h-5" />
                   )}
-                </span>
-              </button>
+                </motion.span>
+              </motion.button>
               
               <motion.div
                 initial={false}
@@ -89,7 +123,7 @@ const ServicesSection = () => {
               </motion.div>
             </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
