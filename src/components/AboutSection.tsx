@@ -5,7 +5,7 @@ import profileImage from "@/assets/riasat-profile.png";
 const stats = [
   { value: "5+", label: "Years of Experience" },
   { value: "5.00", label: "Client Rating", stars: true },
-  { value: "50+", label: "Projects Delivered" },
+  { value: "100+", label: "Projects Delivered" },
   { value: "100%", label: "Client Satisfaction" },
 ];
 
@@ -88,47 +88,50 @@ const AboutSection = () => {
           </motion.span>
         </motion.h2>
 
-        {/* Stats grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 items-center relative">
-          {stats.map((stat, index) => (
-            <motion.div
-              key={stat.label}
-              initial={{ opacity: 0, y: 40, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.15, duration: 0.5, type: "spring" }}
-              whileHover={{ y: -5 }}
-              className="text-center"
-            >
-              {stat.stars && (
-                <motion.div
-                  initial={{ opacity: 0 }}
-                  whileInView={{ opacity: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: 0.3 + index * 0.1 }}
-                  className="flex justify-center gap-1 mb-2"
-                >
-                  {[...Array(5)].map((_, i) => (
-                    <motion.svg
-                      key={i}
-                      initial={{ scale: 0, rotate: -180 }}
-                      whileInView={{ scale: 1, rotate: 0 }}
-                      viewport={{ once: true }}
-                      transition={{ delay: 0.4 + i * 0.1, type: "spring" }}
-                      className="w-4 h-4 text-primary fill-current"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
-                    </motion.svg>
-                  ))}
-                </motion.div>
-              )}
-              <p className="text-4xl md:text-6xl font-display font-bold mb-2">
-                <AnimatedCounter value={stat.value} />
-              </p>
-              <p className="text-sm text-muted-foreground">{stat.label}</p>
-            </motion.div>
-          ))}
+        {/* Stats grid with centered image */}
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+          {/* First two stats */}
+          <div className="flex gap-8 md:gap-12">
+            {stats.slice(0, 2).map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.15, duration: 0.5, type: "spring" }}
+                whileHover={{ y: -5 }}
+                className="text-center"
+              >
+                {stat.stars && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3 + index * 0.1 }}
+                    className="flex justify-center gap-1 mb-2"
+                  >
+                    {[...Array(5)].map((_, i) => (
+                      <motion.svg
+                        key={i}
+                        initial={{ scale: 0, rotate: -180 }}
+                        whileInView={{ scale: 1, rotate: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 + i * 0.1, type: "spring" }}
+                        className="w-4 h-4 text-primary fill-current"
+                        viewBox="0 0 20 20"
+                      >
+                        <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                      </motion.svg>
+                    ))}
+                  </motion.div>
+                )}
+                <p className="text-4xl md:text-6xl font-display font-bold mb-2">
+                  <AnimatedCounter value={stat.value} />
+                </p>
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
+              </motion.div>
+            ))}
+          </div>
 
           {/* Center profile image */}
           <motion.div
@@ -136,12 +139,11 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.4, duration: 0.6, type: "spring" }}
-            className="absolute left-1/2 -translate-x-1/2 hidden md:block"
           >
             <motion.div
               whileHover={{ scale: 1.1, rotate: 5 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="w-32 h-32 rounded-full overflow-hidden border-4 border-background shadow-lg"
+              className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-background shadow-lg"
             >
               <img
                 src={profileImage}
@@ -150,6 +152,26 @@ const AboutSection = () => {
               />
             </motion.div>
           </motion.div>
+
+          {/* Last two stats */}
+          <div className="flex gap-8 md:gap-12">
+            {stats.slice(2).map((stat, index) => (
+              <motion.div
+                key={stat.label}
+                initial={{ opacity: 0, y: 40, scale: 0.9 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                viewport={{ once: true }}
+                transition={{ delay: (index + 2) * 0.15, duration: 0.5, type: "spring" }}
+                whileHover={{ y: -5 }}
+                className="text-center"
+              >
+                <p className="text-4xl md:text-6xl font-display font-bold mb-2">
+                  <AnimatedCounter value={stat.value} />
+                </p>
+                <p className="text-sm text-muted-foreground">{stat.label}</p>
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
