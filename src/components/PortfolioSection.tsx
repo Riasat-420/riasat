@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowRight, X, ExternalLink, Github } from "lucide-react";
+import { ArrowRight, X, ExternalLink } from "lucide-react";
 import portfolio1 from "@/assets/portfolio-1.jpg";
 import portfolio2 from "@/assets/portfolio-2.jpg";
 import portfolio3 from "@/assets/portfolio-3.jpg";
@@ -9,43 +9,91 @@ import portfolio4 from "@/assets/portfolio-4.jpg";
 const projects = [
   {
     id: 1,
-    title: "PRODUCT DESIGN",
+    title: "MUSLIM WELFARE ASSOCIATION",
     image: portfolio1,
-    category: "UI/UX",
-    description: "A comprehensive product design project focusing on user experience and interface design. Created intuitive workflows and visually stunning interfaces that increased user engagement by 40%.",
-    client: "Tech Startup Inc.",
+    category: "WordPress",
+    description: "A comprehensive charity and community organization website built with WordPress. Features donation system, event management, and member portal with modern design and optimized performance.",
+    client: "MWA UK",
     year: "2024",
-    services: ["UI Design", "UX Research", "Prototyping"],
+    services: ["WordPress", "Custom Theme", "Donation Integration"],
+    url: "http://mwwa.uk/",
   },
   {
     id: 2,
-    title: "BRAND DESIGN",
+    title: "BREWTON COFFEE BRAND",
     image: portfolio2,
-    category: "Branding",
-    description: "Complete brand identity development including logo design, color palette, typography, and brand guidelines. Delivered a cohesive visual language that resonates with the target audience.",
-    client: "Creative Agency",
+    category: "eCommerce",
+    description: "Premium coffee brand eCommerce website with WooCommerce integration. Custom product pages, subscription features, and seamless checkout experience for a growing coffee business.",
+    client: "Brewton PK",
     year: "2024",
-    services: ["Logo Design", "Brand Strategy", "Visual Identity"],
+    services: ["WooCommerce", "Brand Design", "Payment Integration"],
+    url: "https://brewtonpk.com/",
   },
   {
     id: 3,
-    title: "APP DESIGN",
+    title: "ABERAS CONSTRUCTION",
     image: portfolio3,
-    category: "Mobile",
-    description: "Mobile application design for iOS and Android platforms. Focused on creating a seamless user experience with modern design patterns and accessibility in mind.",
-    client: "FinTech Corp",
-    year: "2023",
-    services: ["Mobile Design", "Interaction Design", "User Testing"],
+    category: "Business",
+    description: "Professional construction company website for Montreal-based firm. Showcases services, project portfolio, and contact forms with bilingual support and mobile-first design.",
+    client: "Aberas Construction",
+    year: "2024",
+    services: ["WordPress", "Elementor", "SEO Optimization"],
+    url: "https://aberasconstruction.ca/",
   },
   {
     id: 4,
-    title: "WEB DEVELOPMENT",
+    title: "FLISTAR EV BRAND",
     image: portfolio4,
-    category: "Development",
-    description: "Full-stack web development project with React and Node.js. Built a scalable e-commerce platform with real-time features and optimized performance.",
-    client: "E-Commerce Brand",
+    category: "Corporate",
+    description: "Electric vehicle brand website for European market. Features product showcases, dealer locator, and modern animations highlighting the innovative EV technology.",
+    client: "Flistar EU",
+    year: "2024",
+    services: ["React", "API Integration", "Performance Optimization"],
+    url: "https://flistar.eu/",
+  },
+  {
+    id: 5,
+    title: "INNOGOS DIGITAL AGENCY",
+    image: portfolio1,
+    category: "Agency",
+    description: "Full-service digital agency website with service showcases, case studies, and team profiles. Built for lead generation with integrated CRM and analytics.",
+    client: "Innogos",
+    year: "2024",
+    services: ["WordPress", "Custom Development", "CRM Integration"],
+    url: "https://innogos.com/",
+  },
+  {
+    id: 6,
+    title: "CAMALI BIJOUX",
+    image: portfolio2,
+    category: "eCommerce",
+    description: "Luxury jewelry eCommerce store with elegant product displays, zoom functionality, and secure payment processing. Custom WooCommerce theme with advanced filtering.",
+    client: "Camali's Gold Shop",
     year: "2023",
-    services: ["Frontend Dev", "Backend Dev", "Database Design"],
+    services: ["WooCommerce", "Custom Theme", "Payment Gateway"],
+    url: "https://camalibijoux.com/",
+  },
+  {
+    id: 7,
+    title: "CLINIC LUQI",
+    image: portfolio3,
+    category: "Healthcare",
+    description: "Massage and wellness center website in Montreal. Features online booking system, service catalog, and therapist profiles with HIPAA-compliant contact forms.",
+    client: "Clinic Luqi",
+    year: "2023",
+    services: ["WordPress", "Booking System", "Multilingual"],
+    url: "https://clinicluqi.com/",
+  },
+  {
+    id: 8,
+    title: "AVORA GROUP",
+    image: portfolio4,
+    category: "Construction",
+    description: "Design and construction specialists website for Australian market. Project galleries, service pages, and quote request system with modern aesthetics.",
+    client: "Avora Group Australia",
+    year: "2023",
+    services: ["WordPress", "ACF", "Custom Post Types"],
+    url: "https://avoragroup.com.au/",
   },
 ];
 
@@ -173,14 +221,15 @@ const PortfolioSection = () => {
 
                 {/* Action Buttons */}
                 <div className="flex flex-wrap gap-4">
-                  <button className="flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full font-medium hover:bg-foreground/90 transition-colors">
+                  <a
+                    href={selectedProject.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 px-6 py-3 bg-foreground text-background rounded-full font-medium hover:bg-foreground/90 transition-colors"
+                  >
                     <ExternalLink className="w-4 h-4" />
-                    View Live
-                  </button>
-                  <button className="flex items-center gap-2 px-6 py-3 border border-border text-foreground rounded-full font-medium hover:bg-muted transition-colors">
-                    <Github className="w-4 h-4" />
-                    Source Code
-                  </button>
+                    View Live Site
+                  </a>
                 </div>
               </div>
             </motion.div>
