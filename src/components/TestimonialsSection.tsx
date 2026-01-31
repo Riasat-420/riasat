@@ -6,28 +6,28 @@ import testimonial3 from "@/assets/testimonial-3.jpg";
 const testimonials = [
   {
     id: 1,
-    quote: "Extraordinary performance! Quick solutions. Highly recommended.",
-    author: "R.B THOMAS",
-    role: "Chicago City, CEO",
+    quote: "Riasat delivered our charity website on time with excellent donation integration. The site is fast, mobile-friendly, and our member engagement has increased significantly.",
+    author: "ABDUL RAHMAN",
+    role: "Director, Muslim Welfare Association UK",
     image: testimonial1,
   },
   {
     id: 2,
-    quote: "Get Quick solutions with great quality—a recommendation that's unequivocal",
-    author: "EMMA COLLINS",
-    role: "Los Angeles, UX Lead",
+    quote: "Our coffee brand's eCommerce store exceeded expectations. The WooCommerce setup is seamless, and sales have grown 40% since launch. Highly professional work!",
+    author: "HASSAN ALI",
+    role: "Founder, Brewton Coffee PK",
     image: testimonial2,
   },
   {
     id: 3,
-    quote: "Professional, creative, & truly results-driven!",
-    author: "DAVID MILLER",
-    role: "San Francisco",
+    quote: "The bilingual construction website perfectly showcases our Montreal projects. Riasat understood our vision and delivered a site that generates quality leads consistently.",
+    author: "MARC DUBOIS",
+    role: "Owner, Aberas Construction Canada",
     image: testimonial3,
   },
 ];
 
-const clientLogos = ["PWA", "Vline", "TRAVOR", "ebay", "Saba"];
+const clientLogos = ["MWWA", "Brewton", "Aberas", "Flistar", "Innogos", "Avora"];
 
 const containerVariants = {
   hidden: { opacity: 0 },
