@@ -1,4 +1,5 @@
 import { motion } from "framer-motion";
+import logoHead from "@/assets/logo-head.png";
 
 const Footer = () => {
   return (
@@ -19,10 +20,12 @@ const Footer = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center gap-2 cursor-pointer"
           >
-            <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground text-sm font-bold">R</span>
-            </div>
-            <span className="font-display font-semibold">Riasat.dev</span>
+            <img 
+              src={logoHead} 
+              alt="Dev Riasat" 
+              className="w-10 h-10 object-cover object-top rounded-full"
+            />
+            <span className="font-display font-semibold">Dev Riasat</span>
           </motion.div>
 
           <motion.p

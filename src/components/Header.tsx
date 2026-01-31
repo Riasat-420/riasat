@@ -2,6 +2,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
+import logoHead from "@/assets/logo-head.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,10 +18,12 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 text-lg font-semibold">
-          <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground text-sm font-bold">R</span>
-          </div>
-          <span className="font-display">Riasat.dev</span>
+          <img 
+            src={logoHead} 
+            alt="Dev Riasat" 
+            className="w-10 h-10 object-cover object-top rounded-full"
+          />
+          <span className="font-display">Dev Riasat</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
