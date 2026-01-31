@@ -5,23 +5,33 @@ import { ChevronDown } from "lucide-react";
 const faqs = [
   {
     id: 1,
-    question: "MORE ABOUT ME?",
-    answer: "I'm a passionate UI/UX designer with 7+ years of experience creating beautiful, functional digital products. I specialize in branding, product design, and user experience.",
+    question: "WHAT WEB DEVELOPMENT SERVICES DO YOU OFFER?",
+    answer: "I specialize in WordPress development (custom themes, Elementor, ACF, speed optimization), React & Node.js full-stack applications, API integrations, WooCommerce eCommerce solutions, and SaaS platform development with authentication, billing, and cloud infrastructure.",
   },
   {
     id: 2,
-    question: "HOW CAN I CONTACT WITH YOU?",
-    answer: "You can reach me via my email at hello@jessakinda.com or through the contact form below. I typically respond within 24 hours.",
+    question: "HOW LONG DOES A TYPICAL PROJECT TAKE?",
+    answer: "Project timelines vary based on complexity. A simple WordPress site takes 2-3 weeks, while custom React applications or eCommerce stores typically take 4-8 weeks. SaaS platforms with advanced features may take 2-3 months. I'll provide a detailed timeline after understanding your requirements.",
   },
   {
     id: 3,
-    question: "HOW MUCH FOR COST?",
-    answer: "Project costs vary based on scope and complexity. I offer custom quotes after understanding your specific needs. Feel free to reach out for a free consultation.",
+    question: "WHAT IS YOUR PRICING STRUCTURE?",
+    answer: "I offer project-based pricing tailored to your specific needs. WordPress sites start from $1,500, eCommerce stores from $3,000, and custom React/Node.js applications from $5,000. Contact me for a free consultation and personalized quote.",
   },
   {
     id: 4,
-    question: "WHICH TYPE OF SERVICES YOU PROVIDE?",
-    answer: "I provide comprehensive design services including UI/UX design, branding, web design, mobile app design, and creative direction for startups and established businesses.",
+    question: "DO YOU PROVIDE ONGOING MAINTENANCE AND SUPPORT?",
+    answer: "Yes! I offer monthly maintenance packages that include security updates, performance monitoring, backups, and priority support. This ensures your website stays secure, fast, and up-to-date with the latest technologies.",
+  },
+  {
+    id: 5,
+    question: "CAN YOU HELP WITH EXISTING WEBSITES?",
+    answer: "Absolutely. I work on redesigns, performance optimization, bug fixes, and adding new features to existing sites. Whether it's speeding up a slow WordPress site or adding payment integrations, I can help improve your current setup.",
+  },
+  {
+    id: 6,
+    question: "WHAT IS YOUR DEVELOPMENT PROCESS?",
+    answer: "My process includes: 1) Discovery call to understand your goals, 2) Proposal with timeline and cost, 3) Design mockups for approval, 4) Development with regular progress updates, 5) Testing and revisions, 6) Launch and training. You'll be involved at every stage.",
   },
 ];
 
