@@ -1,11 +1,7 @@
 import { motion } from "framer-motion";
-import { useTheme } from "next-themes";
-import logoDark from "@/assets/logo-dark.png";
-import logoLight from "@/assets/logo-light.png";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
-  const { theme } = useTheme();
-
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
@@ -26,7 +22,7 @@ const Footer = () => {
             className="flex items-center cursor-pointer"
           >
             <img 
-              src={theme === "dark" ? logoDark : logoLight} 
+              src={logo} 
               alt="Dev Riasat" 
               className="h-8 w-auto object-contain"
             />
