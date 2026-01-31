@@ -5,24 +5,29 @@ import { Plus, Minus } from "lucide-react";
 const services = [
   {
     id: 1,
-    title: "BRANDING",
-    description: "Creating distinctive brand identities that resonate with your target audience and set you apart from competitors.",
+    title: "WORDPRESS DEVELOPMENT",
+    description: "Custom WordPress themes, Elementor builds, ACF, CPT, and speed optimization. From simple blogs to complex membership platforms and enterprise sites.",
   },
   {
     id: 2,
-    title: "DESIGN",
-    description: "Efficient, knowledgeable, & smooth experience. Highly recommended.",
+    title: "REACT & NODE.JS",
+    description: "Modern full-stack applications with React frontends and Node.js backends. Headless CMS setups, API development, and scalable architectures.",
     isDefault: true,
   },
   {
     id: 3,
-    title: "MARKETING",
-    description: "Strategic digital marketing solutions to grow your online presence and reach your business goals.",
+    title: "API INTEGRATIONS",
+    description: "Seamless third-party integrations including payment gateways, CRMs, automation tools, and custom API development for data-driven solutions.",
   },
   {
     id: 4,
-    title: "CODE",
-    description: "Clean, maintainable code that brings designs to life with modern web technologies.",
+    title: "ECOMMERCE SOLUTIONS",
+    description: "WooCommerce stores, custom checkout flows, payment integrations, inventory management, and conversion-optimized shopping experiences.",
+  },
+  {
+    id: 5,
+    title: "SAAS PLATFORMS",
+    description: "End-to-end SaaS development with user authentication, subscription billing, multi-tenancy, dashboards, and scalable cloud infrastructure.",
   },
 ];
 
@@ -69,7 +74,7 @@ const ServicesSection = () => {
             transition={{ delay: 0.3 }}
             className="text-sm text-muted-foreground uppercase tracking-wider mt-4"
           >
-            Our Services
+            My Services
           </motion.span>
         </div>
 
