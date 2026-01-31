@@ -25,7 +25,7 @@ const Footer = () => {
               <img 
                 src={logoHead} 
                 alt="Dev Riasat" 
-                className="w-full h-full object-cover scale-150 object-top"
+                className="w-[200%] h-[200%] object-cover -ml-[50%] -mt-[15%]"
               />
             </div>
             <span className="font-display font-semibold">Dev Riasat</span>
