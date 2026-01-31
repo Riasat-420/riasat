@@ -1,7 +1,11 @@
 import { motion } from "framer-motion";
-import logoHead from "@/assets/logo-head.png";
+import { useTheme } from "next-themes";
+import logoDark from "@/assets/logo-dark.png";
+import logoLight from "@/assets/logo-light.png";
 
 const Footer = () => {
+  const { theme } = useTheme();
+
   return (
     <motion.footer
       initial={{ opacity: 0, y: 20 }}
@@ -19,16 +23,13 @@ const Footer = () => {
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
             whileHover={{ scale: 1.05 }}
-            className="flex items-center gap-2 cursor-pointer"
+            className="flex items-center cursor-pointer"
           >
-            <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-primary flex-shrink-0">
-              <img 
-                src={logoHead} 
-                alt="Dev Riasat" 
-                className="w-[200%] h-[200%] object-cover -ml-[50%] -mt-[15%]"
-              />
-            </div>
-            <span className="font-display font-semibold">Dev Riasat</span>
+            <img 
+              src={theme === "dark" ? logoDark : logoLight} 
+              alt="Dev Riasat" 
+              className="h-8 w-auto object-contain"
+            />
           </motion.a>
 
           {/* Social Links */}
