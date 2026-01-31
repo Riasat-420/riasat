@@ -203,10 +203,10 @@ const TestimonialsSection = () => {
                 >
                   <motion.div
                     whileHover={{ scale: 1.1 }}
-                    className={`relative overflow-hidden rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 p-4 transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-lg ${
+                    className={`relative overflow-hidden rounded-xl border border-border/50 p-4 transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-lg ${
                       logo.isLogo 
-                        ? "h-16 w-32 flex items-center justify-center" 
-                        : "h-20 w-36"
+                        ? "h-20 w-40 flex items-center justify-center bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-100 dark:to-slate-200" 
+                        : "h-20 w-36 bg-background/50 backdrop-blur-sm"
                     }`}
                   >
                     <img
@@ -214,7 +214,7 @@ const TestimonialsSection = () => {
                       alt={logo.name}
                       className={`transition-all duration-300 ${
                         logo.isLogo 
-                          ? "h-full w-auto object-contain opacity-70 group-hover:opacity-100 brightness-0 invert dark:brightness-100 dark:invert-0" 
+                          ? "h-12 w-auto object-contain opacity-90 group-hover:opacity-100" 
                           : "w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100"
                       }`}
                     />
