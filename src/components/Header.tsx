@@ -2,7 +2,8 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import { Menu, X, Sun, Moon } from "lucide-react";
 import { useTheme } from "next-themes";
-import logoHead from "@/assets/logo-head.png";
+import logoDark from "@/assets/logo-dark.png";
+import logoLight from "@/assets/logo-light.png";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,15 +18,12 @@ const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
-        <a href="#" className="flex items-center gap-2">
-          <div className="w-9 h-9 rounded-full overflow-hidden border-2 border-primary flex-shrink-0">
-            <img 
-              src={logoHead} 
-              alt="Dev Riasat" 
-              className="w-[200%] h-[200%] object-cover -ml-[50%] -mt-[15%]"
-            />
-          </div>
-          <span className="font-display font-semibold text-lg">Dev Riasat</span>
+        <a href="#" className="flex items-center">
+          <img 
+            src={theme === "dark" ? logoDark : logoLight} 
+            alt="Dev Riasat" 
+            className="h-10 w-auto object-contain"
+          />
         </a>
 
         <nav className="hidden md:flex items-center gap-8">
