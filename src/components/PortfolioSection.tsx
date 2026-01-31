@@ -1,16 +1,20 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, X, ExternalLink } from "lucide-react";
-import portfolio1 from "@/assets/portfolio-1.jpg";
-import portfolio2 from "@/assets/portfolio-2.jpg";
-import portfolio3 from "@/assets/portfolio-3.jpg";
-import portfolio4 from "@/assets/portfolio-4.jpg";
+import portfolioMwwa from "@/assets/portfolio-mwwa.jpg";
+import portfolioBrewton from "@/assets/portfolio-brewton.jpg";
+import portfolioAberas from "@/assets/portfolio-aberas.jpg";
+import portfolioFlistar from "@/assets/portfolio-flistar.jpg";
+import portfolioInnogos from "@/assets/portfolio-innogos.jpg";
+import portfolioCamali from "@/assets/portfolio-camali.jpg";
+import portfolioClinic from "@/assets/portfolio-clinic.jpg";
+import portfolioAvora from "@/assets/portfolio-avora.jpg";
 
 const projects = [
   {
     id: 1,
     title: "MUSLIM WELFARE ASSOCIATION",
-    image: portfolio1,
+    image: portfolioMwwa,
     category: "WordPress",
     description: "A comprehensive charity and community organization website built with WordPress. Features donation system, event management, and member portal with modern design and optimized performance.",
     client: "MWA UK",
@@ -21,7 +25,7 @@ const projects = [
   {
     id: 2,
     title: "BREWTON COFFEE BRAND",
-    image: portfolio2,
+    image: portfolioBrewton,
     category: "eCommerce",
     description: "Premium coffee brand eCommerce website with WooCommerce integration. Custom product pages, subscription features, and seamless checkout experience for a growing coffee business.",
     client: "Brewton PK",
@@ -32,7 +36,7 @@ const projects = [
   {
     id: 3,
     title: "ABERAS CONSTRUCTION",
-    image: portfolio3,
+    image: portfolioAberas,
     category: "Business",
     description: "Professional construction company website for Montreal-based firm. Showcases services, project portfolio, and contact forms with bilingual support and mobile-first design.",
     client: "Aberas Construction",
@@ -43,7 +47,7 @@ const projects = [
   {
     id: 4,
     title: "FLISTAR EV BRAND",
-    image: portfolio4,
+    image: portfolioFlistar,
     category: "Corporate",
     description: "Electric vehicle brand website for European market. Features product showcases, dealer locator, and modern animations highlighting the innovative EV technology.",
     client: "Flistar EU",
@@ -54,7 +58,7 @@ const projects = [
   {
     id: 5,
     title: "INNOGOS DIGITAL AGENCY",
-    image: portfolio1,
+    image: portfolioInnogos,
     category: "Agency",
     description: "Full-service digital agency website with service showcases, case studies, and team profiles. Built for lead generation with integrated CRM and analytics.",
     client: "Innogos",
@@ -65,7 +69,7 @@ const projects = [
   {
     id: 6,
     title: "CAMALI BIJOUX",
-    image: portfolio2,
+    image: portfolioCamali,
     category: "eCommerce",
     description: "Luxury jewelry eCommerce store with elegant product displays, zoom functionality, and secure payment processing. Custom WooCommerce theme with advanced filtering.",
     client: "Camali's Gold Shop",
@@ -76,7 +80,7 @@ const projects = [
   {
     id: 7,
     title: "CLINIC LUQI",
-    image: portfolio3,
+    image: portfolioClinic,
     category: "Healthcare",
     description: "Massage and wellness center website in Montreal. Features online booking system, service catalog, and therapist profiles with HIPAA-compliant contact forms.",
     client: "Clinic Luqi",
@@ -87,7 +91,7 @@ const projects = [
   {
     id: 8,
     title: "AVORA GROUP",
-    image: portfolio4,
+    image: portfolioAvora,
     category: "Construction",
     description: "Design and construction specialists website for Australian market. Project galleries, service pages, and quote request system with modern aesthetics.",
     client: "Avora Group Australia",
@@ -96,7 +100,6 @@ const projects = [
     url: "https://avoragroup.com.au/",
   },
 ];
-
 type Project = typeof projects[0];
 
 const PortfolioSection = () => {
