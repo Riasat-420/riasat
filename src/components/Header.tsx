@@ -1,11 +1,17 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
+import { useTheme } from "next-themes";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const { theme, setTheme } = useTheme();
 
   const navItems = ["Home", "Services", "Portfolio", "About", "Contact"];
+
+  const toggleTheme = () => {
+    setTheme(theme === "dark" ? "light" : "dark");
+  };
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -30,6 +36,13 @@ const Header = () => {
         </nav>
 
         <div className="hidden md:flex items-center gap-4">
+          <button
+            onClick={toggleTheme}
+            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
           <a href="#" className="text-muted-foreground hover:text-foreground">
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -45,12 +58,18 @@ const Header = () => {
           </button>
         </div>
 
-        <button
-          className="md:hidden"
-          onClick={() => setIsOpen(!isOpen)}
-        >
-          {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-        </button>
+        <div className="flex md:hidden items-center gap-2">
+          <button
+            onClick={toggleTheme}
+            className="p-2 text-muted-foreground hover:text-foreground transition-colors"
+            aria-label="Toggle theme"
+          >
+            {theme === "dark" ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
+          </button>
+          <button onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+          </button>
+        </div>
       </div>
 
       {isOpen && (
