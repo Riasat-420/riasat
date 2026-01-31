@@ -3,6 +3,18 @@ import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
 import testimonial3 from "@/assets/testimonial-3.jpg";
 
+// Real client logos
+import innogosLogo from "@/assets/logos/innogos-logo.png";
+import camaliLogo from "@/assets/logos/camali-logo.png";
+import avoraLogo from "@/assets/logos/avora-logo.png";
+import clinicLogo from "@/assets/logos/clinic-logo.png";
+
+// Portfolio images as fallbacks for clients without standalone logos
+import portfolioMwwa from "@/assets/portfolio-mwwa.jpg";
+import portfolioBrewton from "@/assets/portfolio-brewton.jpg";
+import portfolioAberas from "@/assets/portfolio-aberas.jpg";
+import portfolioFlistar from "@/assets/portfolio-flistar.jpg";
+
 const testimonials = [
   {
     id: 1,
@@ -27,7 +39,16 @@ const testimonials = [
   },
 ];
 
-const clientLogos = ["MWWA", "Brewton", "Aberas", "Flistar", "Innogos", "Avora"];
+const clientLogos = [
+  { name: "MWWA", image: portfolioMwwa, url: "http://mwwa.uk/" },
+  { name: "Brewton", image: portfolioBrewton, url: "https://brewtonpk.com/" },
+  { name: "Aberas", image: portfolioAberas, url: "https://aberasconstruction.ca/" },
+  { name: "Flistar", image: portfolioFlistar, url: "https://flistar.eu/" },
+  { name: "Innogos", image: innogosLogo, url: "https://innogos.com/", isLogo: true },
+  { name: "Camali", image: camaliLogo, url: "https://camalibijoux.com/", isLogo: true },
+  { name: "Clinic Luqi", image: clinicLogo, url: "https://clinicluqi.com/", isLogo: true },
+  { name: "Avora", image: avoraLogo, url: "https://avoragroup.com.au/", isLogo: true },
+];
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -50,6 +71,9 @@ const testimonialVariants = {
 };
 
 const TestimonialsSection = () => {
+  // Duplicate logos for infinite scroll effect
+  const duplicatedLogos = [...clientLogos, ...clientLogos];
+
   return (
     <section className="py-24 bg-secondary/30 overflow-hidden">
       <div className="container mx-auto px-6">
@@ -70,10 +94,10 @@ const TestimonialsSection = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
             whileHover={{ x: 5 }}
-            href="#"
+            href="#portfolio"
             className="text-sm text-primary hover:underline"
           >
-            View All →
+            View Portfolio →
           </motion.a>
         </div>
 
@@ -137,7 +161,7 @@ const TestimonialsSection = () => {
           ))}
         </motion.div>
 
-        {/* Client logos */}
+        {/* Client logos carousel */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -148,20 +172,63 @@ const TestimonialsSection = () => {
           <p className="text-sm text-muted-foreground uppercase tracking-wider mb-8">
             Happy Clients
           </p>
-          <div className="flex flex-wrap gap-12 items-center">
-            {clientLogos.map((logo, index) => (
-              <motion.span
-                key={logo}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1, duration: 0.4 }}
-                whileHover={{ scale: 1.1, color: "hsl(var(--foreground))" }}
-                className="text-2xl font-display font-bold text-muted-foreground/50 cursor-pointer transition-colors"
-              >
-                {logo}
-              </motion.span>
-            ))}
+          
+          {/* Infinite scrolling carousel */}
+          <div className="relative overflow-hidden">
+            {/* Gradient overlays for smooth edges */}
+            <div className="absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-secondary/30 to-transparent z-10 pointer-events-none" />
+            <div className="absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-secondary/30 to-transparent z-10 pointer-events-none" />
+            
+            <motion.div
+              className="flex gap-8 items-center"
+              animate={{
+                x: ["0%", "-50%"],
+              }}
+              transition={{
+                x: {
+                  repeat: Infinity,
+                  repeatType: "loop",
+                  duration: 30,
+                  ease: "linear",
+                },
+              }}
+            >
+              {duplicatedLogos.map((logo, index) => (
+                <a
+                  key={`${logo.name}-${index}`}
+                  href={logo.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-shrink-0 group"
+                >
+                  <motion.div
+                    whileHover={{ scale: 1.1 }}
+                    className={`relative overflow-hidden rounded-xl bg-background/50 backdrop-blur-sm border border-border/50 p-4 transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-lg ${
+                      logo.isLogo 
+                        ? "h-16 w-32 flex items-center justify-center" 
+                        : "h-20 w-36"
+                    }`}
+                  >
+                    <img
+                      src={logo.image}
+                      alt={logo.name}
+                      className={`transition-all duration-300 ${
+                        logo.isLogo 
+                          ? "h-full w-auto object-contain opacity-70 group-hover:opacity-100 brightness-0 invert dark:brightness-100 dark:invert-0" 
+                          : "w-full h-full object-cover rounded-lg opacity-80 group-hover:opacity-100"
+                      }`}
+                    />
+                    {!logo.isLogo && (
+                      <div className="absolute inset-0 bg-gradient-to-t from-foreground/60 to-transparent rounded-lg flex items-end p-2">
+                        <span className="text-xs font-semibold text-primary-foreground">
+                          {logo.name}
+                        </span>
+                      </div>
+                    )}
+                  </motion.div>
+                </a>
+              ))}
+            </motion.div>
           </div>
         </motion.div>
       </div>
