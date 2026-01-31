@@ -16,7 +16,7 @@ const faqs = [
   {
     id: 3,
     question: "WHAT IS YOUR PRICING STRUCTURE?",
-    answer: "I offer project-based pricing tailored to your specific needs. WordPress sites start from $1,500, eCommerce stores from $3,000, and custom React/Node.js applications from $5,000. Contact me for a free consultation and personalized quote.",
+    answer: "I offer flexible project-based pricing tailored to your needs. Simple landing pages and basic WordPress sites start from $150-200. More complex projects like eCommerce stores, custom React applications, and SaaS platforms are priced based on scope and requirements. Contact me for a free consultation and personalized quote.",
   },
   {
     id: 4,

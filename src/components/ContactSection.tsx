@@ -80,9 +80,9 @@ const ContactSection = () => {
             </motion.h3>
             <motion.div variants={contactInfoVariants} className="space-y-4 text-muted-foreground">
               {[
-                { icon: "📍", text: "California, USA" },
-                { icon: "✉️", text: "hello@jessakinda.com" },
-                { icon: "📞", text: "+1 (555) 123-4567" },
+                { icon: "📍", text: "Islamabad, Pakistan" },
+                { icon: "✉️", text: "muhammadriasatali40@gmail.com" },
+                { icon: "📞", text: "+92 349-8088939" },
               ].map((item, index) => (
                 <motion.p
                   key={index}
