@@ -9,6 +9,7 @@ import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import BackToTop from "@/components/BackToTop";
+import ChatBot from "@/components/ChatBot";
 
 const Index = () => {
   return (
@@ -26,6 +27,7 @@ const Index = () => {
       </main>
       <Footer />
       <BackToTop />
+      <ChatBot />
     </div>
   );
 };
