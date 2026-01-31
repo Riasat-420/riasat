@@ -18,9 +18,9 @@ const Header = () => {
       <div className="container mx-auto px-6 py-4 flex items-center justify-between">
         <a href="#" className="flex items-center gap-2 text-lg font-semibold">
           <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground text-sm font-bold">J</span>
+            <span className="text-primary-foreground text-sm font-bold">R</span>
           </div>
-          <span className="font-display">grafity</span>
+          <span className="font-display">Riasat.dev</span>
         </a>
 
         <nav className="hidden md:flex items-center gap-8">

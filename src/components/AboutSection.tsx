@@ -1,12 +1,12 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import profileImage from "@/assets/profile-circular.jpg";
+import profileImage from "@/assets/riasat-profile.png";
 
 const stats = [
-  { value: "07", label: "Years of Experience" },
-  { value: "5.00", label: "Rating", stars: true },
-  { value: "120+", label: "Worldwide" },
-  { value: "03", label: "Awards" },
+  { value: "5+", label: "Years of Experience" },
+  { value: "5.00", label: "Client Rating", stars: true },
+  { value: "50+", label: "Projects Delivered" },
+  { value: "100%", label: "Client Satisfaction" },
 ];
 
 const AnimatedCounter = ({ value, suffix = "" }: { value: string; suffix?: string }) => {
@@ -47,7 +47,7 @@ const AboutSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-2xl md:text-4xl lg:text-5xl font-display leading-tight max-w-4xl mb-16"
         >
-          {"UI/UX DESIGNER CRAFTING INTUITIVE, USER-FRIENDLY EXPERIENCES THROUGH ".split(" ").map((word, index) => (
+          {"FULL-STACK WEB DEVELOPER BUILDING HIGH-PERFORMANCE WEBSITES & SCALABLE ".split(" ").map((word, index) => (
             <motion.span
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ const AboutSection = () => {
             transition={{ delay: 0.5, duration: 0.4 }}
             className="text-primary inline-block mr-2"
           >
-            WIREFRAMING, PROTOTYPING,
+            SAAS PLATFORMS, CUSTOM APPS,
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -84,7 +84,7 @@ const AboutSection = () => {
             transition={{ delay: 0.7, duration: 0.4 }}
             className="text-primary inline-block"
           >
-            VISUAL DESIGN.
+            API INTEGRATIONS.
           </motion.span>
         </motion.h2>
 
@@ -145,7 +145,7 @@ const AboutSection = () => {
             >
               <img
                 src={profileImage}
-                alt="Jessa Kinda"
+                alt="Muhammad Riasat Ali"
                 className="w-full h-full object-cover"
               />
             </motion.div>

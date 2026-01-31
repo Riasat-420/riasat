@@ -20,9 +20,9 @@ const Footer = () => {
             className="flex items-center gap-2 cursor-pointer"
           >
             <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-primary-foreground text-sm font-bold">J</span>
+              <span className="text-primary-foreground text-sm font-bold">R</span>
             </div>
-            <span className="font-display font-semibold">grafity</span>
+            <span className="font-display font-semibold">Riasat.dev</span>
           </motion.div>
 
           <motion.p
@@ -32,7 +32,7 @@ const Footer = () => {
             transition={{ delay: 0.2 }}
             className="text-sm text-muted-foreground"
           >
-            © {new Date().getFullYear()} Jessa Kinda. All rights reserved.
+            © {new Date().getFullYear()} Muhammad Riasat Ali. All rights reserved.
           </motion.p>
 
           <div className="flex items-center gap-6">

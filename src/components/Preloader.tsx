@@ -36,13 +36,13 @@ const Preloader = () => {
                 className="w-20 h-20 rounded-full border-4 border-muted border-t-primary"
               />
               <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-2xl font-display font-bold text-foreground">J</span>
+                <span className="text-2xl font-display font-bold text-foreground">R</span>
               </div>
             </motion.div>
 
             {/* Brand name with letter animation */}
             <div className="flex items-center gap-1">
-              {"grafity".split("").map((letter, index) => (
+              {"Riasat.dev".split("").map((letter, index) => (
                 <motion.span
                   key={index}
                   initial={{ opacity: 0, y: 20 }}
