@@ -97,13 +97,13 @@ const HeroSection = () => {
               />
             </div>
 
-            {/* Floating info card */}
+            {/* Floating info card - hidden on mobile, repositioned on tablet+ */}
             <motion.div
               initial={{ opacity: 0, x: 40, y: 20 }}
               animate={{ opacity: 1, x: 0, y: 0 }}
               transition={{ duration: 0.6, delay: 0.9 }}
               whileHover={{ y: -5, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.2)" }}
-              className="absolute -right-4 top-1/4 bg-card p-4 rounded-lg shadow-lg max-w-[200px] cursor-pointer"
+              className="hidden md:block absolute -right-4 lg:-right-8 bottom-8 lg:bottom-16 bg-card p-4 rounded-lg shadow-lg max-w-[200px] cursor-pointer"
             >
               <p className="text-sm text-muted-foreground mb-1">Full-Stack Developer specializing in WordPress, React, Node.js & scalable architectures</p>
               <a href="#about" className="text-primary text-sm font-medium hover:underline">
