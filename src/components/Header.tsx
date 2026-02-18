@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Menu, X, Sun, Moon } from "lucide-react";
+import { Menu, X, Sun, Moon, ShieldCheck } from "lucide-react";
 import { useTheme } from "next-themes";
+import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
 
 const Header = () => {
@@ -37,7 +38,14 @@ const Header = () => {
           ))}
         </nav>
 
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
+          <Link
+            to="/trust"
+            className="inline-flex items-center gap-1.5 text-xs text-primary border border-primary/40 bg-primary/10 hover:bg-primary/20 px-3 py-1.5 rounded-full font-semibold transition-colors"
+          >
+            <ShieldCheck className="w-3 h-3" />
+            Govt. Certified
+          </Link>
           <button
             onClick={toggleTheme}
             className="p-2 text-muted-foreground hover:text-foreground transition-colors"
@@ -120,11 +128,19 @@ const Header = () => {
                 {item}
               </a>
             ))}
+            <Link
+              to="/trust"
+              onClick={() => setIsOpen(false)}
+              className="inline-flex items-center gap-1.5 text-sm text-primary font-semibold"
+            >
+              <ShieldCheck className="w-4 h-4" />
+              Govt. Certified
+            </Link>
             <a 
               href="https://wa.me/+923498088939" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="mt-4 px-4 py-2 bg-foreground text-background rounded-full text-sm font-medium w-fit"
+              className="mt-2 px-4 py-2 bg-foreground text-background rounded-full text-sm font-medium w-fit"
             >
               Say Hi!
             </a>
