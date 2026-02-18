@@ -9,6 +9,11 @@ import portfolioInnogos from "@/assets/portfolio-innogos.jpg";
 import portfolioCamali from "@/assets/portfolio-camali.jpg";
 import portfolioClinic from "@/assets/portfolio-clinic.jpg";
 import portfolioAvora from "@/assets/portfolio-avora.jpg";
+import portfolioIrfanijaz from "@/assets/portfolio-irfanijaz.jpg";
+import portfolioCamaligrafix from "@/assets/portfolio-camaligrafix.jpg";
+import portfolioAsteroidqa from "@/assets/portfolio-asteroidqa.jpg";
+import portfolioYeswork from "@/assets/portfolio-yeswork.jpg";
+import portfolioBaigassociates from "@/assets/portfolio-baigassociates.jpg";
 
 const projects = [
   {
@@ -98,6 +103,61 @@ const projects = [
     year: "2023",
     services: ["WordPress", "ACF", "Custom Post Types"],
     url: "https://avoragroup.com.au/",
+  },
+  {
+    id: 9,
+    title: "IRFAN IJAZ CONSULTING",
+    image: portfolioIrfanijaz,
+    category: "Business",
+    description: "Google Search Ads specialist and business consulting website. Optimized landing page strategy with conversion-focused design and lead generation integration.",
+    client: "Irfan Ijaz",
+    year: "2024",
+    services: ["WordPress", "Landing Page", "Google Ads"],
+    url: "https://irfanijaz.com/",
+  },
+  {
+    id: 10,
+    title: "CAMALI GRAFIX",
+    image: portfolioCamaligrafix,
+    category: "Agency",
+    description: "Creative design agency website for Canadian client Camali Grafix. Portfolio showcasing graphic design, branding, and creative services with a vibrant visual identity.",
+    client: "Camali Grafix, Canada",
+    year: "2024",
+    services: ["WordPress", "Custom Theme", "Portfolio"],
+    url: "http://camaligrafix.com/",
+  },
+  {
+    id: 11,
+    title: "ASTEROID QA",
+    image: portfolioAsteroidqa,
+    category: "Consulting",
+    description: "Landing page strategy and business consulting website for Asteroid QA. Clean, high-converting design built to drive qualified leads and showcase consulting services.",
+    client: "Asteroid QA",
+    year: "2024",
+    services: ["WordPress", "Landing Page", "SEO"],
+    url: "https://www.asteroidqa.com/",
+  },
+  {
+    id: 12,
+    title: "PACIFY SOLAR LIGHTS",
+    image: portfolioYeswork,
+    category: "eCommerce",
+    description: "Solar lights and outdoor lighting eCommerce store. Full WooCommerce setup with product catalog, filters, and payment integration for a growing solar energy brand.",
+    client: "Yeswork Shop",
+    year: "2024",
+    services: ["WooCommerce", "Custom Theme", "Product Management"],
+    url: "https://yeswork.shop/",
+  },
+  {
+    id: 13,
+    title: "BAIG ASSOCIATES",
+    image: portfolioBaigassociates,
+    category: "Legal",
+    description: "Visa and work permit consultancy website. Professional design tailored for immigration services, featuring service pages, case evaluation forms, and multilingual support.",
+    client: "Baig Associates",
+    year: "2024",
+    services: ["WordPress", "Custom Forms", "Multilingual"],
+    url: "https://baigassociates.live/",
   },
 ];
 type Project = typeof projects[0];
