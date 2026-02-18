@@ -1,5 +1,7 @@
-import { motion } from "framer-motion";
-import { Briefcase, GraduationCap, Award, Code2 } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Briefcase, GraduationCap, Award, Code2, ShieldCheck, X } from "lucide-react";
+import { useState } from "react";
+import oecCertificate from "@/assets/oec-certificate.jpg";
 
 const experiences = [
   {
@@ -49,14 +51,25 @@ const skills = [
 
 const certifications = [
   {
+    title: "Soft Skills Training",
+    issuer: "OEC & ICMPD (International Organisation)",
+    date: "February 2, 2026",
+    hours: "21 Hours",
+    certNo: "d4b66b1b",
+    govtCertified: true,
+    description: "Recognized by OEC & ICMPD for enhancing employability skills and career readiness.",
+  },
+  {
     title: "Experience Letter",
     issuer: "Camali Grafix, Canada",
     date: "November 2024",
+    govtCertified: false,
   },
   {
     title: "Internship Completion – Frontend Development",
     issuer: "Octanet Pvt Ltd",
     date: "May 2024",
+    govtCertified: false,
   },
 ];
 
@@ -71,6 +84,8 @@ const itemVariants = {
 };
 
 const ExperienceSection = () => {
+  const [showCert, setShowCert] = useState(false);
+
   return (
     <section id="experience" className="py-24 relative overflow-hidden">
       {/* Large BG text */}
@@ -239,15 +254,37 @@ const ExperienceSection = () => {
                     key={index}
                     variants={itemVariants}
                     whileHover={{ x: 6 }}
-                    className="bg-card/50 border border-border/50 rounded-xl p-5 hover:border-primary/30 hover:shadow-md transition-all duration-300 flex items-start gap-4"
+                    onClick={cert.govtCertified ? () => setShowCert(true) : undefined}
+                    className={`bg-card/50 border rounded-xl p-5 transition-all duration-300 flex items-start gap-4 ${
+                      cert.govtCertified
+                        ? "border-primary/40 shadow-md shadow-primary/10 cursor-pointer hover:border-primary hover:shadow-lg hover:shadow-primary/20"
+                        : "border-border/50 hover:border-primary/30 hover:shadow-md"
+                    }`}
                   >
-                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0 mt-0.5">
-                      <Award className="w-4 h-4 text-primary" />
+                    <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${cert.govtCertified ? "bg-primary/20" : "bg-primary/10"}`}>
+                      {cert.govtCertified
+                        ? <ShieldCheck className="w-4 h-4 text-primary" />
+                        : <Award className="w-4 h-4 text-primary" />
+                      }
                     </div>
-                    <div>
-                      <h4 className="font-semibold text-sm">{cert.title}</h4>
+                    <div className="flex-1 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2 mb-0.5">
+                        <h4 className="font-semibold text-sm">{cert.title}</h4>
+                        {cert.govtCertified && (
+                          <span className="inline-flex items-center gap-1 text-[10px] uppercase tracking-wider bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-bold">
+                            <ShieldCheck className="w-2.5 h-2.5" />
+                            Govt. Certified
+                          </span>
+                        )}
+                      </div>
                       <p className="text-primary text-xs mt-0.5">{cert.issuer}</p>
                       <p className="text-xs text-muted-foreground mt-0.5">{cert.date}</p>
+                      {cert.govtCertified && cert.description && (
+                        <p className="text-xs text-muted-foreground mt-2 leading-relaxed">{cert.description}</p>
+                      )}
+                      {cert.govtCertified && (
+                        <p className="text-xs text-primary mt-2 font-medium">Click to view certificate →</p>
+                      )}
                     </div>
                   </motion.div>
                 ))}
@@ -324,6 +361,56 @@ const ExperienceSection = () => {
           </motion.div>
         </motion.div>
       </div>
+
+      {/* Certificate lightbox */}
+      <AnimatePresence>
+        {showCert && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setShowCert(false)}
+            className="fixed inset-0 z-50 bg-foreground/80 backdrop-blur-sm flex items-center justify-center p-4 md:p-8"
+          >
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              onClick={(e) => e.stopPropagation()}
+              className="bg-background rounded-3xl overflow-hidden max-w-2xl w-full shadow-2xl"
+            >
+              <div className="flex items-center justify-between px-6 py-4 border-b border-border">
+                <div className="flex items-center gap-2">
+                  <ShieldCheck className="w-5 h-5 text-primary" />
+                  <span className="font-semibold text-sm">OEC & ICMPD — Government Certified</span>
+                  <span className="text-[10px] uppercase tracking-wider bg-primary text-primary-foreground px-2 py-0.5 rounded-full font-bold ml-1">
+                    Verified
+                  </span>
+                </div>
+                <button
+                  onClick={() => setShowCert(false)}
+                  className="w-8 h-8 rounded-full bg-secondary flex items-center justify-center hover:bg-muted transition-colors"
+                >
+                  <X className="w-4 h-4" />
+                </button>
+              </div>
+              <div className="p-4">
+                <img
+                  src={oecCertificate}
+                  alt="OEC & ICMPD Soft Skills Training Certificate – Muhammad Riasat Ali"
+                  className="w-full rounded-xl object-contain"
+                />
+              </div>
+              <div className="px-6 pb-5 text-center">
+                <p className="text-xs text-muted-foreground">
+                  Certificate No: <span className="font-mono text-foreground">d4b66b1b</span> · Issued by OEC & ICMPD · 21 Hours Training · Feb 2, 2026
+                </p>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
