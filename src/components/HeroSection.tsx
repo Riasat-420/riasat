@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import profileImage from "@/assets/riasat-profile.png";
+import { ShieldCheck } from "lucide-react";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -54,6 +55,15 @@ const HeroSection = () => {
               <p className="heading-italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary tracking-wide">
                 Muhammad <span className="text-foreground">Riasat</span> Ali
               </p>
+              <motion.div
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 1.1, type: "spring", stiffness: 200 }}
+                className="inline-flex items-center gap-1.5 mt-3 px-3 py-1.5 rounded-full border border-primary/40 bg-primary/10 text-primary text-xs font-semibold uppercase tracking-wider shadow-sm"
+              >
+                <ShieldCheck className="w-3.5 h-3.5" />
+                OEC & ICMPD Govt. Certified
+              </motion.div>
             </motion.div>
 
             <motion.div variants={itemVariants} className="mt-8 md:mt-10">
