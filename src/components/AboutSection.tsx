@@ -47,7 +47,7 @@ const AboutSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-2xl md:text-4xl lg:text-5xl font-display leading-tight max-w-4xl mb-16"
         >
-          {"FULL-STACK WEB DEVELOPER BUILDING HIGH-PERFORMANCE WEBSITES & SCALABLE ".split(" ").map((word, index) => (
+          {"WORDPRESS EXPERT & FULL-STACK DEVELOPER BUILDING ".split(" ").map((word, index) => (
             <motion.span
               key={index}
               initial={{ opacity: 0, y: 20 }}
@@ -66,7 +66,7 @@ const AboutSection = () => {
             transition={{ delay: 0.5, duration: 0.4 }}
             className="text-primary inline-block mr-2"
           >
-            SAAS PLATFORMS, CUSTOM APPS,
+            CUSTOM THEMES, WOOCOMMERCE STORES,
           </motion.span>
           <motion.span
             initial={{ opacity: 0, y: 20 }}
@@ -84,7 +84,7 @@ const AboutSection = () => {
             transition={{ delay: 0.7, duration: 0.4 }}
             className="text-primary inline-block"
           >
-            API INTEGRATIONS.
+            REACT APPLICATIONS.
           </motion.span>
         </motion.h2>
 
