@@ -1,4 +1,6 @@
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import { ShieldCheck } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -77,15 +79,24 @@ const Footer = () => {
             </motion.a>
           </div>
 
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.35 }}
-            className="text-sm text-muted-foreground"
-          >
-            © {new Date().getFullYear()} Muhammad Riasat Ali. All rights reserved.
-          </motion.p>
+          <div className="flex flex-col items-center gap-2">
+            <motion.p
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.35 }}
+              className="text-sm text-muted-foreground"
+            >
+              © {new Date().getFullYear()} Muhammad Riasat Ali. All rights reserved.
+            </motion.p>
+            <Link
+              to="/trust"
+              className="inline-flex items-center gap-1.5 text-xs text-primary hover:underline font-medium"
+            >
+              <ShieldCheck className="w-3 h-3" />
+              View Credentials & Trust Page
+            </Link>
+          </div>
         </div>
       </div>
     </motion.footer>
