@@ -173,6 +173,49 @@ const AboutSection = () => {
             ))}
           </div>
         </div>
+
+        {/* Photo gallery — indexed by Google Images for the name "Muhammad Riasat Ali" */}
+        <div className="mt-20">
+          <motion.h3
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="text-xl md:text-2xl font-display mb-8 text-center"
+          >
+            Muhammad Riasat Ali — In Pictures
+          </motion.h3>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
+            {[
+              { src: "/profile/riasat-portrait.jpg", alt: "Muhammad Riasat Ali — professional portrait, full-stack web developer based in Islamabad, Pakistan" },
+              { src: "/profile/riasat-vlogue-cover.jpg", alt: "Muhammad Riasat Ali (Dev Riasat) magazine-style cover photo at Faisal Mosque, Islamabad" },
+              { src: "/profile/riasat-monument.jpg", alt: "Muhammad Riasat Ali at Pakistan Monument, Islamabad — freelance React and WordPress developer" },
+              { src: "/profile/riasat-outdoor.jpg", alt: "Muhammad Riasat Ali outdoor portrait — Dev Riasat, government-certified full-stack developer" },
+            ].map((img, i) => (
+              <motion.figure
+                key={img.src}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.1, duration: 0.5 }}
+                whileHover={{ scale: 1.03 }}
+                className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-md bg-muted"
+              >
+                <img
+                  src={img.src}
+                  alt={img.alt}
+                  loading="lazy"
+                  width="800"
+                  height="1000"
+                  className="w-full h-full object-cover"
+                />
+              </motion.figure>
+            ))}
+          </div>
+          <p className="text-center text-sm text-muted-foreground mt-6 max-w-2xl mx-auto">
+            Photos of <strong>Muhammad Riasat Ali</strong> (Dev Riasat) — full-stack web developer in Islamabad, Pakistan.
+          </p>
+        </div>
       </div>
     </section>
   );
