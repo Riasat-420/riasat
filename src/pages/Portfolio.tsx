@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, X, ExternalLink, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
 import { projects, type Project } from "@/data/projects";
+import { useSEO } from "@/hooks/useSEO";
 import logo from "@/assets/logo.png";
 
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
@@ -10,6 +11,39 @@ const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)
 const PortfolioPage = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeCategory, setActiveCategory] = useState("All");
+
+  useSEO({
+    title: "Portfolio | WordPress, React & WooCommerce Projects — Dev Riasat",
+    description: "Explore 100+ web projects by Muhammad Riasat Ali — WordPress, React, WooCommerce & SaaS builds for international clients across UK, Canada, Europe & Australia.",
+    canonical: "https://riasat.lovable.app/portfolio",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      "@id": "https://riasat.lovable.app/portfolio#webpage",
+      "url": "https://riasat.lovable.app/portfolio",
+      "name": "Portfolio — Dev Riasat",
+      "isPartOf": { "@id": "https://riasat.lovable.app/#website" },
+      "about": { "@id": "https://riasat.lovable.app/#person" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://riasat.lovable.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Portfolio", "item": "https://riasat.lovable.app/portfolio" }
+        ]
+      },
+      "mainEntity": {
+        "@type": "ItemList",
+        "numberOfItems": projects.length,
+        "itemListElement": projects.slice(0, 10).map((p, i) => ({
+          "@type": "ListItem",
+          "position": i + 1,
+          "name": p.title,
+          "url": p.url
+        }))
+      }
+    },
+  });
+
 
   const filtered = activeCategory === "All"
     ? projects

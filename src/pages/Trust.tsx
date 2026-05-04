@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { ShieldCheck, Award, Star, Users, Briefcase, Code2, X, ExternalLink, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSEO } from "@/hooks/useSEO";
 import oecCertificate from "@/assets/oec-certificate.jpg";
 import innogosLogo from "@/assets/logos/innogos-logo.png";
 import camaliLogo from "@/assets/logos/camali-logo.png";
@@ -88,6 +89,29 @@ const itemVariants = {
 
 const TrustPage = () => {
   const [viewCert, setViewCert] = useState<(typeof credentials)[0] | null>(null);
+
+  useSEO({
+    title: "Trust & Credentials | Govt-Certified Developer — Dev Riasat",
+    description: "Verified credentials of Muhammad Riasat Ali — OEC & ICMPD govt certification, international experience letters, and 8+ trusted clients across 5 countries.",
+    canonical: "https://riasat.lovable.app/trust",
+    type: "profile",
+    jsonLd: {
+      "@context": "https://schema.org",
+      "@type": "ProfilePage",
+      "@id": "https://riasat.lovable.app/trust#webpage",
+      "url": "https://riasat.lovable.app/trust",
+      "name": "Trust & Credentials — Dev Riasat",
+      "isPartOf": { "@id": "https://riasat.lovable.app/#website" },
+      "mainEntity": { "@id": "https://riasat.lovable.app/#person" },
+      "breadcrumb": {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://riasat.lovable.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Trust", "item": "https://riasat.lovable.app/trust" }
+        ]
+      }
+    },
+  });
 
   return (
     <div className="min-h-screen bg-background">
