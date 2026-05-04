@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { ShieldCheck, Award, Star, Users, Briefcase, Code2, X, ExternalLink, ArrowLeft } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useSEO } from "@/hooks/useSEO";
 import oecCertificate from "@/assets/oec-certificate.jpg";
 import innogosLogo from "@/assets/logos/innogos-logo.png";
 import camaliLogo from "@/assets/logos/camali-logo.png";
