@@ -1,5 +1,7 @@
 User-agent: *
 Allow: /
 
+Disallow: /seo-check
+
 Sitemap: https://riasat.lovable.app/sitemap.xml
 Sitemap: https://riasat.lovable.app/sitemap-images.xml

@@ -44,18 +44,40 @@ const BlogPost = () => {
     [post, lang]
   );
 
+  const postUrl = `https://riasat.lovable.app/blog/${slug ?? ""}`;
+  const ogImage = "https://riasat.lovable.app/og-image.jpg";
+
   useSEO({
     title: view
       ? `${view.title} | Riasat's Ravings`
       : "Post not found | Riasat's Ravings",
     description: view?.excerpt ?? "Blog post not found.",
-    canonical: `https://riasat.lovable.app/blog/${slug ?? ""}`,
+    canonical: postUrl,
+    image: ogImage,
+    imageAlt: view?.title,
     type: "article",
+    locale: lang === "fr" ? "fr_CA" : "en_US",
+    article: post
+      ? {
+          publishedTime: post.date,
+          modifiedTime: post.date,
+          section: post.category,
+          tags: post.tags,
+          author: "Muhammad Riasat Ali",
+        }
+      : undefined,
+    hreflang: hasFrench
+      ? [
+          { hreflang: "en", href: postUrl },
+          { hreflang: "fr-CA", href: postUrl },
+          { hreflang: "x-default", href: postUrl },
+        ]
+      : undefined,
     jsonLd: post && view
       ? {
           "@context": "https://schema.org",
           "@type": "BlogPosting",
-          "@id": `https://riasat.lovable.app/blog/${post.slug}#post`,
+          "@id": `${postUrl}#post`,
           headline: view.title,
           description: view.excerpt,
           datePublished: post.date,
@@ -63,7 +85,9 @@ const BlogPost = () => {
           inLanguage: lang === "fr" ? "fr-CA" : "en",
           keywords: post.tags.join(", "),
           articleSection: post.category,
-          mainEntityOfPage: `https://riasat.lovable.app/blog/${post.slug}`,
+          mainEntityOfPage: postUrl,
+          url: postUrl,
+          image: [ogImage],
           author: { "@id": "https://riasat.lovable.app/#person" },
           publisher: { "@id": "https://riasat.lovable.app/#person" },
           isPartOf: { "@id": "https://riasat.lovable.app/blog#blog" },
@@ -76,7 +100,7 @@ const BlogPost = () => {
                     lang === "fr"
                       ? post.title
                       : post.translations!.fr!.title,
-                  url: `https://riasat.lovable.app/blog/${post.slug}`,
+                  url: postUrl,
                 },
               }
             : {}),
@@ -85,7 +109,7 @@ const BlogPost = () => {
             itemListElement: [
               { "@type": "ListItem", position: 1, name: "Home", item: "https://riasat.lovable.app/" },
               { "@type": "ListItem", position: 2, name: "Blog", item: "https://riasat.lovable.app/blog" },
-              { "@type": "ListItem", position: 3, name: view.title, item: `https://riasat.lovable.app/blog/${post.slug}` },
+              { "@type": "ListItem", position: 3, name: view.title, item: postUrl },
             ],
           },
         }
