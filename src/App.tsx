@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import TrustPage from "./pages/Trust";
 import PortfolioPage from "./pages/Portfolio";
+import SeoCheck from "./pages/SeoCheck";
 
 const queryClient = new QueryClient();
 
@@ -22,6 +23,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/trust" element={<TrustPage />} />
             <Route path="/portfolio" element={<PortfolioPage />} />
+            <Route path="/seo-check" element={<SeoCheck />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
