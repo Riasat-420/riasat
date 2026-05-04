@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://riasat.lovable.app/sitemap.xml
+Sitemap: https://riasat.lovable.app/sitemap-images.xml
