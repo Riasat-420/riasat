@@ -63,25 +63,38 @@ const handler = async (req: Request): Promise<Response> => {
 
     console.log("Sending contact email from:", email);
 
+    // Escape HTML to prevent XSS in rendered email
+    const escapeHtml = (text: string) =>
+      text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#39;");
+
+    const safeName = escapeHtml(name);
+    const safeEmail = escapeHtml(email);
+    const safeMessage = escapeHtml(message).replace(/\n/g, "<br>");
+
     // Send email notification to site owner
     const emailResponse = await resend.emails.send({
       from: "Contact Form <onboarding@resend.dev>",
       to: ["muhammadriasatali40@gmail.com"],
       reply_to: email,
-      subject: `New Contact Form Submission from ${name}`,
+      subject: `New Contact Form Submission from ${name}`.replace(/[\r\n]/g, " "),
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <h2 style="color: #f97316; border-bottom: 2px solid #f97316; padding-bottom: 10px;">
             New Contact Form Submission
           </h2>
           <div style="background: #f9fafb; padding: 20px; border-radius: 8px; margin: 20px 0;">
-            <p style="margin: 10px 0;"><strong>Name:</strong> ${name}</p>
-            <p style="margin: 10px 0;"><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+            <p style="margin: 10px 0;"><strong>Name:</strong> ${safeName}</p>
+            <p style="margin: 10px 0;"><strong>Email:</strong> <a href="mailto:${encodeURIComponent(email)}">${safeEmail}</a></p>
           </div>
           <div style="margin-top: 20px;">
             <h3 style="color: #374151;">Message:</h3>
             <p style="background: #fff; padding: 15px; border-left: 4px solid #f97316; margin: 0;">
-              ${message.replace(/\n/g, "<br>")}
+              ${safeMessage}
             </p>
           </div>
           <p style="color: #6b7280; font-size: 12px; margin-top: 30px;">
