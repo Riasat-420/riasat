@@ -1,3 +1,12 @@
+export type BlogLang = "en" | "fr";
+
+export type BlogTranslation = {
+  title: string;
+  excerpt: string;
+  readTime: string;
+  content: BlogBlock[];
+};
+
 export type BlogPost = {
   slug: string;
   title: string;
@@ -9,6 +18,11 @@ export type BlogPost = {
   tags: string[];
   // Markdown-ish blocks rendered by the page (kept simple — h2/p/ul/quote)
   content: BlogBlock[];
+  // Optional translations. If `fr` exists, the post is treated as bilingual
+  // and the post page defaults to FR for Quebec readers.
+  translations?: Partial<Record<BlogLang, BlogTranslation>>;
+  // When true, the FR version is preferred as the default reading language.
+  defaultLang?: BlogLang;
 };
 
 export type BlogBlock =
@@ -86,6 +100,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "5 min",
     date: "2026-03-30",
     tags: ["montreal", "cafe", "local seo", "quebec"],
+    defaultLang: "fr",
     content: [
       { type: "p", text: "Tourists Google your café once. Locals Google it weekly — for hours, the new pastry, whether you have outdoor seating in May. Your website is a quiet little salesperson, and most café sites get this completely wrong." },
       { type: "h2", text: "The non-negotiables" },
@@ -101,7 +116,31 @@ export const blogPosts: BlogPost[] = [
       { type: "h2", text: "What I usually skip" },
       { type: "p", text: "Online ordering for a 25-seat café is overkill. A 'Reserve a table' button when you don't take reservations is worse than nothing. Keep the site honest — it builds trust before they walk in." },
       { type: "quote", text: "A café website should feel like the café. Calm, warm, and useful." }
-    ]
+    ],
+    translations: {
+      fr: {
+        title: "La checklist du site web pour les cafés montréalais : ce qui fait vraiment entrer les gens",
+        excerpt:
+          "Si vous tenez un café dans le Mile End, le Plateau ou le Vieux-Montréal, votre site web a un seul travail : faire entrer les habitués. Voici ce que j'inclus toujours, et pourquoi.",
+        readTime: "5 min",
+        content: [
+          { type: "p", text: "Les touristes cherchent votre café une seule fois sur Google. Les habitués, eux, le cherchent chaque semaine — pour les heures, la nouvelle pâtisserie, savoir si la terrasse est ouverte en mai. Votre site web est un petit vendeur silencieux, et la plupart des sites de cafés ratent complètement cette job." },
+          { type: "h2", text: "Les incontournables" },
+          { type: "ul", items: [
+            "Les heures d'ouverture visibles sur la page d'accueil, pas cachées dans le pied de page.",
+            "Un menu à jour — un PDF, ça passe, mais une vraie page HTML se classe mieux sur Google.",
+            "L'adresse avec une carte Google intégrée et le nom de la station de métro la plus proche.",
+            "Des photos prises à l'intérieur du café en lumière naturelle (pas des images stock).",
+            "Bilingue : français en premier au Québec, anglais en second."
+          ]},
+          { type: "h2", text: "Le référencement local qui fait vraiment une différence" },
+          { type: "p", text: "Réclamez votre fiche Google Business, mettez les heures à jour chaque semaine, et répondez à tous les avis — même les bêtes, poliment. Sur le site lui-même, le titre de la page devrait ressembler à : « Café [Nom] — Espresso et pâtisseries dans le Mile End, Montréal ». Cette seule ligne fait plus qu'aucun backlink." },
+          { type: "h2", text: "Ce que je laisse tomber, en général" },
+          { type: "p", text: "La commande en ligne pour un café de 25 places, c'est exagéré. Un bouton « Réserver une table » alors que vous ne prenez pas de réservations, c'est pire que rien. Gardez le site honnête — ça bâtit la confiance avant même que la personne pousse la porte." },
+          { type: "quote", text: "Un site de café devrait ressembler au café lui-même. Calme, chaleureux, et utile." }
+        ]
+      }
+    }
   },
   {
     slug: "jewellery-boutique-quebec-website",
@@ -113,6 +152,7 @@ export const blogPosts: BlogPost[] = [
     readTime: "6 min",
     date: "2026-03-15",
     tags: ["jewellery", "boutique", "quebec", "local"],
+    defaultLang: "fr",
     content: [
       { type: "p", text: "I've built a handful of sites for boutique owners in QC and the same patterns show up every time. The product is beautiful, the Instagram is gorgeous, and the website looks like it was made in 2014." },
       { type: "h2", text: "Three things that quietly cost you customers" },
@@ -127,8 +167,40 @@ export const blogPosts: BlogPost[] = [
       { type: "p", text: "Show prices for a meaningful range of items. Hidden prices push people to message a competitor instead. If a piece is custom, say 'from $X' — honesty pre-qualifies the client before they walk in." },
       { type: "h2", text: "If you're in Montreal or Quebec City and want to talk" },
       { type: "p", text: "I work with independent boutiques on small, careful builds — usually a focused site in 2–3 weeks, bilingual, with the local SEO basics done properly. Drop me a message and I'll send a real proposal, not a template." }
-    ]
+    ],
+    translations: {
+      fr: {
+        title: "Bijouteries et boutiques au Québec : pourquoi votre site web vous fait perdre des visites en magasin",
+        excerpt:
+          "Les boutiques indépendantes à Québec et à Montréal compétitionnent avec Etsy et Instagram chaque jour. Un petit site web bien fait fait pencher la balance de votre bord.",
+        readTime: "6 min",
+        content: [
+          { type: "p", text: "J'ai bâti une poignée de sites pour des propriétaires de boutiques au Québec, et les mêmes patterns reviennent à chaque fois. Le produit est magnifique, l'Instagram est superbe, et le site web a l'air d'avoir été fait en 2014." },
+          { type: "h2", text: "Trois choses qui vous coûtent des clients sans bruit" },
+          { type: "ul", items: [
+            "Pas de version bilingue. Au Québec, ce n'est pas une option, c'est attendu.",
+            "Des photos magnifiques sur Insta mais mal compressées sur le site.",
+            "Pas de section « visitez la boutique » — adresse, note sur le stationnement, heures d'ouverture."
+          ]},
+          { type: "h2", text: "Ce qu'un bon site de boutique fait bien" },
+          { type: "p", text: "Il raconte une petite histoire (qui l'a fait, où, avec quels matériaux), montre la collection actuelle clairement, et rend facile de réserver une visite ou de vous écrire. Vous n'avez pas besoin d'une boutique en ligne complète dès le jour un — un bouton « réserver en magasin » convertit souvent mieux pour les pièces de plus haute valeur." },
+          { type: "h2", text: "Au sujet des prix sur le site" },
+          { type: "p", text: "Affichez les prix pour une bonne partie des items. Les prix cachés poussent les gens à écrire à un compétiteur à la place. Si une pièce est sur mesure, écrivez « à partir de X $ » — l'honnêteté pré-qualifie le client avant même qu'il franchisse la porte." },
+          { type: "h2", text: "Si vous êtes à Montréal ou à Québec et qu'on devrait se parler" },
+          { type: "p", text: "Je travaille avec des boutiques indépendantes sur des projets petits et soignés — habituellement un site ciblé en 2 à 3 semaines, bilingue, avec les bases du référencement local bien faites. Écrivez-moi et je vous enverrai une vraie proposition, pas un gabarit." }
+        ]
+      }
+    }
   }
 ];
 
 export const getPostBySlug = (slug: string) => blogPosts.find((p) => p.slug === slug);
+
+// Helper: returns the post content in the requested language, falling back to EN.
+export const getPostInLang = (post: BlogPost, lang: BlogLang) => {
+  if (lang === "fr" && post.translations?.fr) {
+    const fr = post.translations.fr;
+    return { title: fr.title, excerpt: fr.excerpt, readTime: fr.readTime, content: fr.content };
+  }
+  return { title: post.title, excerpt: post.excerpt, readTime: post.readTime, content: post.content };
+};
