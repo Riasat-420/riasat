@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://riasat.lovable.app/</loc>
+    <image:image>
+      <image:loc>https://riasat.lovable.app/profile/riasat-portrait.jpg</image:loc>
+      <image:title>Muhammad Riasat Ali — Professional Portrait</image:title>
+      <image:caption>Muhammad Riasat Ali (Dev Riasat), full-stack web developer based in Islamabad, Pakistan.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://riasat.lovable.app/profile/riasat-vlogue-cover.jpg</image:loc>
+      <image:title>Muhammad Riasat Ali — Magazine Cover at Faisal Mosque</image:title>
+      <image:caption>Muhammad Riasat Ali magazine-style cover photo at Faisal Mosque, Islamabad.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://riasat.lovable.app/profile/riasat-monument.jpg</image:loc>
+      <image:title>Muhammad Riasat Ali at Pakistan Monument</image:title>
+      <image:caption>Muhammad Riasat Ali at Pakistan Monument, Islamabad — freelance React and WordPress developer.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://riasat.lovable.app/profile/riasat-outdoor.jpg</image:loc>
+      <image:title>Muhammad Riasat Ali — Outdoor Portrait</image:title>
+      <image:caption>Muhammad Riasat Ali (Dev Riasat) outdoor portrait — government-certified full-stack developer.</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://riasat.lovable.app/og-image.jpg</image:loc>
+      <image:title>Dev Riasat — Full-Stack Developer</image:title>
+      <image:caption>Muhammad Riasat Ali (Dev Riasat) — Full-Stack Developer in Islamabad, Pakistan.</image:caption>
+    </image:image>
+  </url>
+</urlset>
