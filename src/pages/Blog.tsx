@@ -18,25 +18,46 @@ const Blog = () => {
     description:
       "Honest essays on web development for Pakistani marketing agencies and local businesses in Montreal & Quebec — by Muhammad Riasat Ali (Dev Riasat).",
     canonical: "https://riasat.lovable.app/blog",
-    jsonLd: {
-      "@context": "https://schema.org",
-      "@type": "Blog",
-      "@id": "https://riasat.lovable.app/blog#blog",
-      name: "Riasat's Ravings",
-      url: "https://riasat.lovable.app/blog",
-      description:
-        "Essays on web development, agency outsourcing, and local SEO for Pakistan and Quebec.",
-      author: { "@id": "https://riasat.lovable.app/#person" },
-      publisher: { "@id": "https://riasat.lovable.app/#person" },
-      blogPost: blogPosts.map((p) => ({
-        "@type": "BlogPosting",
-        headline: p.title,
-        description: p.excerpt,
-        datePublished: p.date,
-        url: `https://riasat.lovable.app/blog/${p.slug}`,
+    image: "https://riasat.lovable.app/og-image.jpg",
+    imageAlt: "Riasat's Ravings — blog by Muhammad Riasat Ali",
+    jsonLd: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "@id": "https://riasat.lovable.app/blog#blog",
+        name: "Riasat's Ravings",
+        url: "https://riasat.lovable.app/blog",
+        description:
+          "Essays on web development, agency outsourcing, and local SEO for Pakistan and Quebec.",
+        inLanguage: ["en", "fr-CA"],
         author: { "@id": "https://riasat.lovable.app/#person" },
-      })),
-    },
+        publisher: { "@id": "https://riasat.lovable.app/#person" },
+        isPartOf: { "@id": "https://riasat.lovable.app/#website" },
+        blogPost: blogPosts.map((p) => ({
+          "@type": "BlogPosting",
+          "@id": `https://riasat.lovable.app/blog/${p.slug}#post`,
+          headline: p.title,
+          description: p.excerpt,
+          datePublished: p.date,
+          dateModified: p.date,
+          inLanguage: p.translations?.fr ? ["en", "fr-CA"] : "en",
+          articleSection: p.category,
+          keywords: p.tags.join(", "),
+          url: `https://riasat.lovable.app/blog/${p.slug}`,
+          image: "https://riasat.lovable.app/og-image.jpg",
+          author: { "@id": "https://riasat.lovable.app/#person" },
+          publisher: { "@id": "https://riasat.lovable.app/#person" },
+        })),
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://riasat.lovable.app/" },
+          { "@type": "ListItem", position: 2, name: "Blog", item: "https://riasat.lovable.app/blog" },
+        ],
+      },
+    ],
   });
 
   const filtered =
