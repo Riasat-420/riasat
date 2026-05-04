@@ -36,6 +36,12 @@ const Header = () => {
               {item}
             </a>
           ))}
+          <Link
+            to="/blog"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Blog
+          </Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-3">
@@ -128,6 +134,13 @@ const Header = () => {
                 {item}
               </a>
             ))}
+            <Link
+              to="/blog"
+              onClick={() => setIsOpen(false)}
+              className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+            >
+              Blog
+            </Link>
             <Link
               to="/trust"
               onClick={() => setIsOpen(false)}
