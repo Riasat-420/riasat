@@ -35,7 +35,7 @@ const HeroSection = () => {
             className="relative z-10 order-2 lg:order-1 text-center lg:text-left"
           >
             <motion.div variants={itemVariants}>
-              <h1 className="heading-display text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.9] tracking-tight">
+              <h1 className="heading-display skeu-headline text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.9] tracking-tight">
                 <span className="text-muted-foreground/40 block sm:inline">FULL</span>
                 <span className="relative inline-block ml-0 sm:-ml-1">
                   -STACK
