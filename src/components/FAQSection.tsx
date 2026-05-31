@@ -39,13 +39,13 @@ const FAQSection = () => {
   const [openId, setOpenId] = useState<number | null>(null);
 
   return (
-    <section className="py-24">
+    <section className="py-20 md:py-24">
       <div className="container mx-auto px-6">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-display font-bold text-center mb-16"
+          className="skeu-headline text-3xl md:text-4xl font-display font-bold text-center mb-12 md:mb-16"
         >
           QUESTION & ANSWERS
         </motion.h2>

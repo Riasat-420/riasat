@@ -40,10 +40,9 @@
 
     --radius: 0.5rem;
 
-    /* Custom tokens */
     --font-display: 'Playfair Display', Georgia, serif;
     --font-body: 'Inter', system-ui, sans-serif;
-    
+
     --gradient-hero: linear-gradient(135deg, hsl(18 100% 50%) 0%, hsl(30 100% 55%) 100%);
     --shadow-card: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
     --shadow-hover: 0 8px 30px -6px hsl(0 0% 0% / 0.15);
@@ -103,7 +102,6 @@
     --input: 0 0% 20%;
     --ring: 18 100% 55%;
 
-    /* Skeuomorphism tokens — dark */
     --skeu-bg: linear-gradient(180deg, hsl(0 0% 22%) 0%, hsl(0 0% 10%) 100%);
     --skeu-bg-primary: linear-gradient(180deg, hsl(22 100% 60%) 0%, hsl(18 100% 50%) 50%, hsl(14 100% 38%) 100%);
     --skeu-bg-muted: linear-gradient(180deg, hsl(0 0% 18%) 0%, hsl(0 0% 8%) 100%);
@@ -180,107 +178,104 @@
 }
 
 /* =========================================================
-   GLOBAL SKEUOMORPHISM LAYER
-   Glossy, tactile, beveled — applies site-wide
+   SKEUOMORPHISM LAYER — opt-in, tactile, beveled
+   Use utility classes so layout buttons (accordions, icon
+   toggles) stay clean and section padding stays predictable.
    ========================================================= */
 @layer components {
-  /* Headings: chiseled letterpress feel */
-  h1, h2, h3, h4, h5, h6,
-  .heading-display, .heading-italic {
+  /* Soft letterpress on display headings only */
+  .heading-display,
+  .heading-italic,
+  .skeu-headline {
     text-shadow: var(--skeu-text-shadow);
   }
-  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6,
-  .dark .heading-display, .dark .heading-italic {
+  .dark .heading-display,
+  .dark .heading-italic,
+  .dark .skeu-headline {
     text-shadow: var(--skeu-text-shadow-light);
   }
 
-  /* Body text: subtle emboss */
-  p, li, blockquote {
-    text-shadow: 0 1px 0 hsl(0 0% 100% / 0.5);
+  /* Chunky emboss for big hero-size headings */
+  .skeu-headline {
+    text-shadow:
+      0 1px 0 hsl(0 0% 100% / 0.9),
+      0 2px 0 hsl(0 0% 100% / 0.5),
+      0 -1px 0 hsl(0 0% 0% / 0.2),
+      0 6px 12px hsl(0 0% 0% / 0.18);
   }
-  .dark p, .dark li, .dark blockquote {
-    text-shadow: 0 -1px 0 hsl(0 0% 0% / 0.4);
+  .dark .skeu-headline {
+    text-shadow:
+      0 -1px 0 hsl(0 0% 0% / 0.7),
+      0 1px 0 hsl(0 0% 100% / 0.12),
+      0 4px 10px hsl(0 0% 0% / 0.6);
   }
 
-  /* Buttons: glossy 3D pill */
-  button:not(.no-skeu):not([data-no-skeu]),
+  /* Round skeuomorphic orb — for logo, avatars, icon badges */
+  .skeu-orb {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9999px;
+    background-image: var(--skeu-bg);
+    box-shadow: var(--skeu-shadow);
+    border: 1px solid var(--skeu-border);
+    transition: box-shadow 0.2s ease, transform 0.15s ease;
+  }
+  .skeu-orb:hover {
+    box-shadow: var(--skeu-shadow-hover);
+    transform: translateY(-1px);
+  }
+
+  /* Glossy panel — opt-in for cards */
+  .skeu-panel {
+    background-image: var(--skeu-bg);
+    box-shadow: var(--skeu-shadow);
+    border: 1px solid var(--skeu-border);
+    border-radius: 1rem;
+  }
+
+  /* Beveled image frame */
+  .skeu-image-frame {
+    border-radius: 1.25rem;
+    padding: 6px;
+    background-image: var(--skeu-bg);
+    box-shadow: var(--skeu-shadow);
+    border: 1px solid var(--skeu-border);
+    overflow: hidden;
+  }
+
+  /* Opt-in glossy pill button */
   .btn-skeu {
     background-image: var(--skeu-bg);
     box-shadow: var(--skeu-shadow);
     border: 1px solid var(--skeu-border);
     text-shadow: var(--skeu-text-shadow);
-    transition: box-shadow 0.18s ease, transform 0.12s ease, background-image 0.18s ease;
+    transition: box-shadow 0.18s ease, transform 0.12s ease;
   }
-  .dark button:not(.no-skeu):not([data-no-skeu]),
-  .dark .btn-skeu {
-    text-shadow: var(--skeu-text-shadow-light);
-  }
-  button:not(.no-skeu):not([data-no-skeu]):hover,
-  .btn-skeu:hover {
-    box-shadow: var(--skeu-shadow-hover);
-  }
-  button:not(.no-skeu):not([data-no-skeu]):active,
-  .btn-skeu:active {
-    box-shadow: var(--skeu-shadow-pressed);
-    transform: translateY(1px);
-  }
+  .btn-skeu:hover { box-shadow: var(--skeu-shadow-hover); }
+  .btn-skeu:active { box-shadow: var(--skeu-shadow-pressed); transform: translateY(1px); }
 
-  /* Primary / dark CTA buttons get the orange gloss */
-  button[class*="bg-primary"]:not(.no-skeu),
-  button[class*="bg-foreground"]:not(.no-skeu),
-  a[class*="bg-primary"]:not(.no-skeu),
-  a[class*="bg-foreground"]:not(.no-skeu),
   .btn-skeu-primary {
-    background-image: var(--skeu-bg-primary) !important;
+    background-image: var(--skeu-bg-primary);
     box-shadow: var(--skeu-shadow);
     border: 1px solid hsl(14 100% 35%);
-    color: hsl(0 0% 100%) !important;
+    color: hsl(0 0% 100%);
     text-shadow: 0 -1px 0 hsl(0 0% 0% / 0.35), 0 1px 0 hsl(0 0% 100% / 0.2);
     transition: box-shadow 0.18s ease, transform 0.12s ease;
   }
-  a[class*="bg-primary"]:not(.no-skeu):hover,
-  a[class*="bg-foreground"]:not(.no-skeu):hover {
-    box-shadow: var(--skeu-shadow-hover);
-  }
+  .btn-skeu-primary:hover { box-shadow: var(--skeu-shadow-hover); }
+  .btn-skeu-primary:active { box-shadow: var(--skeu-shadow-pressed); transform: translateY(1px); }
 
-  /* Cards: glassy panel with bevel */
-  [class*="bg-card"]:not(button):not(a):not(input):not(textarea),
-  .card-skeu {
-    background-image: var(--skeu-bg);
-    box-shadow: var(--skeu-shadow);
-    border: 1px solid var(--skeu-border);
-  }
-
-  /* Inputs / textareas: inset well */
-  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  /* Inputs keep the inset well */
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):not([type="hidden"]),
   textarea,
   select {
-    background-image: var(--skeu-bg-muted) !important;
-    box-shadow: var(--skeu-shadow-inset) !important;
-    border: 1px solid var(--skeu-border) !important;
+    background-image: var(--skeu-bg-muted);
+    box-shadow: var(--skeu-shadow-inset);
+    border: 1px solid var(--skeu-border);
   }
   input:focus, textarea:focus, select:focus {
-    box-shadow: var(--skeu-shadow-inset), 0 0 0 3px hsl(var(--ring) / 0.35) !important;
-  }
-
-  /* Icons: 3D pop */
-  svg {
-    filter: drop-shadow(0 1px 0 hsl(0 0% 100% / 0.6)) drop-shadow(0 1px 1px hsl(0 0% 0% / 0.2));
-  }
-  .dark svg {
-    filter: drop-shadow(0 -1px 0 hsl(0 0% 0% / 0.6)) drop-shadow(0 1px 1px hsl(0 0% 0% / 0.5));
-  }
-
-  /* Images: beveled frame */
-  img:not(.no-skeu) {
-    box-shadow:
-      0 0 0 1px hsl(0 0% 0% / 0.1),
-      0 1px 0 hsl(0 0% 100% / 0.6) inset,
-      0 8px 20px -6px hsl(0 0% 0% / 0.3);
-  }
-
-  /* Section backgrounds — brushed gradient */
-  section {
-    background-image: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+    box-shadow: var(--skeu-shadow-inset), 0 0 0 3px hsl(var(--ring) / 0.35);
+    outline: none;
   }
 }

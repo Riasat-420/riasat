@@ -35,7 +35,7 @@ const HeroSection = () => {
             className="relative z-10 order-2 lg:order-1 text-center lg:text-left"
           >
             <motion.div variants={itemVariants}>
-              <h1 className="heading-display text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.9] tracking-tight">
+              <h1 className="heading-display skeu-headline text-[clamp(2.5rem,7vw,5.5rem)] leading-[0.9] tracking-tight">
                 <span className="text-muted-foreground/40 block sm:inline">FULL</span>
                 <span className="relative inline-block ml-0 sm:-ml-1">
                   -STACK
@@ -96,14 +96,14 @@ const HeroSection = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="relative order-1 lg:order-2 w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-none mx-auto"
           >
-            <div className="relative aspect-square rounded-2xl md:rounded-3xl overflow-hidden bg-gradient-to-br from-primary/10 to-accent/10">
+            <div className="skeu-image-frame relative aspect-square bg-gradient-to-br from-primary/10 to-accent/10">
               <motion.img
                 initial={{ scale: 1.2 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 1.2 }}
                 src={profileImage}
                 alt="Muhammad Riasat Ali - Full Stack Developer"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover rounded-[0.9rem]"
               />
             </div>
 

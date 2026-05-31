@@ -54,16 +54,16 @@ const ServicesSection = () => {
   const [openId, setOpenId] = useState<number | null>(2);
 
   return (
-    <section id="services" className="py-24 relative">
+    <section id="services" className="py-20 md:py-28 relative">
       <div className="container mx-auto px-6">
         {/* Section header */}
-        <div className="flex justify-between items-start mb-16">
+        <div className="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2 mb-12 md:mb-16">
           <motion.h2
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.7 }}
-            className="text-[clamp(4rem,15vw,12rem)] font-display font-bold leading-none text-muted-foreground/20"
+            className="skeu-headline text-[clamp(3rem,12vw,9rem)] font-display font-bold leading-none text-muted-foreground/20"
           >
             SERVICE
           </motion.h2>
@@ -72,7 +72,7 @@ const ServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-sm text-muted-foreground uppercase tracking-wider mt-4"
+            className="text-sm text-muted-foreground uppercase tracking-wider sm:mt-4"
           >
             My Services
           </motion.span>
