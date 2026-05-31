@@ -72,7 +72,7 @@ const ServicesSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3 }}
-            className="text-sm text-muted-foreground uppercase tracking-wider mt-4"
+            className="text-sm text-muted-foreground uppercase tracking-wider sm:mt-4"
           >
             My Services
           </motion.span>
