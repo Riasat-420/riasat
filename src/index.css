@@ -178,3 +178,109 @@
     box-shadow: var(--shadow-hover);
   }
 }
+
+/* =========================================================
+   GLOBAL SKEUOMORPHISM LAYER
+   Glossy, tactile, beveled — applies site-wide
+   ========================================================= */
+@layer components {
+  /* Headings: chiseled letterpress feel */
+  h1, h2, h3, h4, h5, h6,
+  .heading-display, .heading-italic {
+    text-shadow: var(--skeu-text-shadow);
+  }
+  .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6,
+  .dark .heading-display, .dark .heading-italic {
+    text-shadow: var(--skeu-text-shadow-light);
+  }
+
+  /* Body text: subtle emboss */
+  p, li, blockquote {
+    text-shadow: 0 1px 0 hsl(0 0% 100% / 0.5);
+  }
+  .dark p, .dark li, .dark blockquote {
+    text-shadow: 0 -1px 0 hsl(0 0% 0% / 0.4);
+  }
+
+  /* Buttons: glossy 3D pill */
+  button:not(.no-skeu):not([data-no-skeu]),
+  .btn-skeu {
+    background-image: var(--skeu-bg);
+    box-shadow: var(--skeu-shadow);
+    border: 1px solid var(--skeu-border);
+    text-shadow: var(--skeu-text-shadow);
+    transition: box-shadow 0.18s ease, transform 0.12s ease, background-image 0.18s ease;
+  }
+  .dark button:not(.no-skeu):not([data-no-skeu]),
+  .dark .btn-skeu {
+    text-shadow: var(--skeu-text-shadow-light);
+  }
+  button:not(.no-skeu):not([data-no-skeu]):hover,
+  .btn-skeu:hover {
+    box-shadow: var(--skeu-shadow-hover);
+  }
+  button:not(.no-skeu):not([data-no-skeu]):active,
+  .btn-skeu:active {
+    box-shadow: var(--skeu-shadow-pressed);
+    transform: translateY(1px);
+  }
+
+  /* Primary / dark CTA buttons get the orange gloss */
+  button[class*="bg-primary"]:not(.no-skeu),
+  button[class*="bg-foreground"]:not(.no-skeu),
+  a[class*="bg-primary"]:not(.no-skeu),
+  a[class*="bg-foreground"]:not(.no-skeu),
+  .btn-skeu-primary {
+    background-image: var(--skeu-bg-primary) !important;
+    box-shadow: var(--skeu-shadow);
+    border: 1px solid hsl(14 100% 35%);
+    color: hsl(0 0% 100%) !important;
+    text-shadow: 0 -1px 0 hsl(0 0% 0% / 0.35), 0 1px 0 hsl(0 0% 100% / 0.2);
+    transition: box-shadow 0.18s ease, transform 0.12s ease;
+  }
+  a[class*="bg-primary"]:not(.no-skeu):hover,
+  a[class*="bg-foreground"]:not(.no-skeu):hover {
+    box-shadow: var(--skeu-shadow-hover);
+  }
+
+  /* Cards: glassy panel with bevel */
+  [class*="bg-card"]:not(button):not(a):not(input):not(textarea),
+  .card-skeu {
+    background-image: var(--skeu-bg);
+    box-shadow: var(--skeu-shadow);
+    border: 1px solid var(--skeu-border);
+  }
+
+  /* Inputs / textareas: inset well */
+  input:not([type="checkbox"]):not([type="radio"]):not([type="range"]),
+  textarea,
+  select {
+    background-image: var(--skeu-bg-muted) !important;
+    box-shadow: var(--skeu-shadow-inset) !important;
+    border: 1px solid var(--skeu-border) !important;
+  }
+  input:focus, textarea:focus, select:focus {
+    box-shadow: var(--skeu-shadow-inset), 0 0 0 3px hsl(var(--ring) / 0.35) !important;
+  }
+
+  /* Icons: 3D pop */
+  svg {
+    filter: drop-shadow(0 1px 0 hsl(0 0% 100% / 0.6)) drop-shadow(0 1px 1px hsl(0 0% 0% / 0.2));
+  }
+  .dark svg {
+    filter: drop-shadow(0 -1px 0 hsl(0 0% 0% / 0.6)) drop-shadow(0 1px 1px hsl(0 0% 0% / 0.5));
+  }
+
+  /* Images: beveled frame */
+  img:not(.no-skeu) {
+    box-shadow:
+      0 0 0 1px hsl(0 0% 0% / 0.1),
+      0 1px 0 hsl(0 0% 100% / 0.6) inset,
+      0 8px 20px -6px hsl(0 0% 0% / 0.3);
+  }
+
+  /* Section backgrounds — brushed gradient */
+  section {
+    background-image: linear-gradient(180deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+  }
+}
