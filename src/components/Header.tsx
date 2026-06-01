@@ -28,19 +28,19 @@ const Header = () => {
           </span>
         </a>
 
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-2">
           {navItems.map((item) => (
             <a
               key={item}
               href={`#${item.toLowerCase()}`}
-              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+              className="skeu-nav-pill text-sm text-foreground/80 hover:text-foreground"
             >
               {item}
             </a>
           ))}
           <Link
             to="/blog"
-            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            className="skeu-nav-pill text-sm text-foreground/80 hover:text-foreground"
           >
             Blog
           </Link>
