@@ -19,11 +19,11 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
         <a href="#" className="flex items-center" aria-label="Dev Riasat home">
-          <span className="skeu-orb h-12 w-12 p-1.5">
+          <span className="skeu-plate h-12 px-3 py-1.5">
             <img
               src={logo}
               alt="Dev Riasat"
-              className="h-full w-full object-contain rounded-full"
+              className="h-full w-auto object-contain"
             />
           </span>
         </a>
