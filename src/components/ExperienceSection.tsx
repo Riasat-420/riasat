@@ -350,7 +350,7 @@ const ExperienceSection = () => {
                   {group.items.map((skill) => (
                     <span
                       key={skill}
-                      className="text-xs bg-secondary text-secondary-foreground px-2.5 py-1 rounded-full"
+                      className="btn-skeu text-xs px-3 py-1.5 rounded-full text-foreground/90 font-medium"
                     >
                       {skill}
                     </span>
