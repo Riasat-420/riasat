@@ -183,19 +183,10 @@
    toggles) stay clean and section padding stays predictable.
    ========================================================= */
 @layer components {
-  /* Soft letterpress on display headings only */
+  /* Chunky emboss applied to ALL h1/h2/h3 + display headings globally */
+  h1, h2, h3,
   .heading-display,
   .heading-italic,
-  .skeu-headline {
-    text-shadow: var(--skeu-text-shadow);
-  }
-  .dark .heading-display,
-  .dark .heading-italic,
-  .dark .skeu-headline {
-    text-shadow: var(--skeu-text-shadow-light);
-  }
-
-  /* Chunky emboss for big hero-size headings */
   .skeu-headline {
     text-shadow:
       0 1px 0 hsl(0 0% 100% / 0.9),
@@ -203,11 +194,22 @@
       0 -1px 0 hsl(0 0% 0% / 0.2),
       0 6px 12px hsl(0 0% 0% / 0.18);
   }
+  .dark h1, .dark h2, .dark h3,
+  .dark .heading-display,
+  .dark .heading-italic,
   .dark .skeu-headline {
     text-shadow:
       0 -1px 0 hsl(0 0% 0% / 0.7),
       0 1px 0 hsl(0 0% 100% / 0.12),
       0 4px 10px hsl(0 0% 0% / 0.6);
+  }
+
+  /* Softer emboss for h4-h6 */
+  h4, h5, h6 {
+    text-shadow: var(--skeu-text-shadow);
+  }
+  .dark h4, .dark h5, .dark h6 {
+    text-shadow: var(--skeu-text-shadow-light);
   }
 
   /* Round skeuomorphic orb — for avatars, icon badges */
