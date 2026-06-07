@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import testimonial1 from "@/assets/testimonial-1.jpg";
 import testimonial2 from "@/assets/testimonial-2.jpg";
 import testimonial3 from "@/assets/testimonial-3.jpg";
+import LazyImage from "@/components/LazyImage";
 
 // Real client logos
 import innogosLogo from "@/assets/logos/innogos-logo.png";
@@ -151,9 +152,11 @@ const TestimonialsSection = () => {
                 transition={{ type: "spring", stiffness: 300 }}
                 className="w-24 h-24 rounded-full overflow-hidden flex-shrink-0"
               >
-                <img
+                <LazyImage
                   src={testimonial.image}
                   alt={testimonial.author}
+                  width={400}
+                  height={400}
                   className="w-full h-full object-cover"
                 />
               </motion.div>
@@ -209,9 +212,11 @@ const TestimonialsSection = () => {
                         : "h-20 w-36 bg-background/50 backdrop-blur-sm"
                     }`}
                   >
-                    <img
+                    <LazyImage
                       src={logo.image}
                       alt={logo.name}
+                      width={logo.isLogo ? 240 : 400}
+                      height={logo.isLogo ? 96 : 240}
                       className={`transition-all duration-300 ${
                         logo.isLogo 
                           ? "h-12 w-auto object-contain opacity-90 group-hover:opacity-100" 

@@ -1,6 +1,7 @@
 import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 import profileImage from "@/assets/riasat-profile.png";
+import LazyImage from "@/components/LazyImage";
 
 const stats = [
   { value: "5+", label: "Years of Experience" },
@@ -145,9 +146,12 @@ const AboutSection = () => {
               transition={{ type: "spring", stiffness: 300 }}
               className="w-24 h-24 md:w-32 md:h-32 rounded-full overflow-hidden border-4 border-background shadow-lg"
             >
-              <img
+              <LazyImage
                 src={profileImage}
                 alt="Muhammad Riasat Ali"
+                width={128}
+                height={128}
+                priority
                 className="w-full h-full object-cover"
               />
             </motion.div>
@@ -201,12 +205,11 @@ const AboutSection = () => {
                 whileHover={{ scale: 1.03 }}
                 className="relative aspect-[4/5] overflow-hidden rounded-2xl shadow-md bg-muted"
               >
-                <img
+                <LazyImage
                   src={img.src}
                   alt={img.alt}
-                  loading="lazy"
-                  width="800"
-                  height="1000"
+                  width={800}
+                  height={1000}
                   className="w-full h-full object-cover"
                 />
               </motion.figure>

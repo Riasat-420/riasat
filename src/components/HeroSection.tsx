@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import profileImage from "@/assets/riasat-profile.png";
 import { ShieldCheck } from "lucide-react";
+import AvailableBadge from "@/components/AvailableBadge";
+import LazyImage from "@/components/LazyImage";
+import ResumeButton from "@/components/ResumeButton";
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -52,6 +55,9 @@ const HeroSection = () => {
             </motion.div>
 
             <motion.div variants={itemVariants} className="mt-6 md:mt-8">
+              <div className="mb-4 flex justify-center lg:justify-start">
+                <AvailableBadge />
+              </div>
               <p className="heading-italic text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-primary tracking-wide">
                 Muhammad <span className="text-foreground">Riasat</span> Ali
               </p>
@@ -77,7 +83,7 @@ const HeroSection = () => {
               </h2>
             </motion.div>
 
-            <motion.div variants={itemVariants} className="mt-8 md:mt-10 flex gap-4 justify-center lg:justify-start">
+            <motion.div variants={itemVariants} className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <motion.a
                 href="#portfolio"
                 whileHover={{ scale: 1.05 }}
@@ -86,6 +92,7 @@ const HeroSection = () => {
               >
                 View Portfolio
               </motion.a>
+              <ResumeButton variant="outline" className="justify-center px-6 md:px-8 py-3 md:py-3.5 text-sm md:text-base" />
             </motion.div>
           </motion.div>
 
@@ -97,14 +104,21 @@ const HeroSection = () => {
             className="relative order-1 lg:order-2 w-full max-w-[280px] sm:max-w-[350px] md:max-w-[400px] lg:max-w-none mx-auto"
           >
             <div className="skeu-image-frame relative aspect-square bg-gradient-to-br from-primary/10 to-accent/10">
-              <motion.img
+              <motion.div
                 initial={{ scale: 1.2 }}
                 animate={{ scale: 1 }}
                 transition={{ duration: 1.2 }}
-                src={profileImage}
-                alt="Muhammad Riasat Ali - Full Stack Developer"
-                className="w-full h-full object-cover rounded-[0.9rem]"
-              />
+                className="w-full h-full"
+              >
+                <LazyImage
+                  src={profileImage}
+                  alt="Muhammad Riasat Ali - Full Stack Developer"
+                  width={800}
+                  height={800}
+                  priority
+                  className="w-full h-full object-cover rounded-[0.9rem]"
+                />
+              </motion.div>
             </div>
 
             {/* Floating info card - hidden on mobile, repositioned on tablet+ */}

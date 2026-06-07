@@ -4,6 +4,7 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "next-themes";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import SkipToContent from "@/components/SkipToContent";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import TrustPage from "./pages/Trust";
@@ -21,6 +22,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <SkipToContent />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/trust" element={<TrustPage />} />

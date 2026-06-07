@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { ShieldCheck } from "lucide-react";
 import logo from "@/assets/logo.png";
+import LazyImage from "@/components/LazyImage";
 
 const Footer = () => {
   return (
@@ -23,9 +24,12 @@ const Footer = () => {
             whileHover={{ scale: 1.05 }}
             className="flex items-center cursor-pointer"
           >
-            <img 
+            <LazyImage 
               src={logo} 
               alt="Dev Riasat" 
+              width={240}
+              height={80}
+              priority
               className="h-8 w-auto object-contain"
             />
           </motion.a>

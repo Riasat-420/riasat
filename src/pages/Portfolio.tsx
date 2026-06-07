@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import { projects, type Project } from "@/data/projects";
 import { useSEO } from "@/hooks/useSEO";
 import logo from "@/assets/logo.png";
+import LazyImage from "@/components/LazyImage";
 
 const categories = ["All", ...Array.from(new Set(projects.map((p) => p.category)))];
 
@@ -55,7 +56,7 @@ const PortfolioPage = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-6 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Dev Riasat" className="h-10 w-auto object-contain" />
+            <LazyImage src={logo} alt="Dev Riasat" width={240} height={80} priority className="h-10 w-auto object-contain" />
           </Link>
           <Link
             to="/"
@@ -131,9 +132,11 @@ const PortfolioPage = () => {
                   className="group relative overflow-hidden rounded-2xl bg-card cursor-pointer"
                 >
                   <div className="aspect-[4/3] overflow-hidden">
-                    <img
+                    <LazyImage
                       src={project.image}
                       alt={project.title}
+                      width={1200}
+                      height={900}
                       className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                   </div>
@@ -179,7 +182,13 @@ const PortfolioPage = () => {
               className="bg-background rounded-3xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
             >
               <div className="relative aspect-video">
-                <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+                <LazyImage
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  width={1600}
+                  height={900}
+                  className="w-full h-full object-cover"
+                />
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors"

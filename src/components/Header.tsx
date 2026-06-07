@@ -4,6 +4,7 @@ import { Menu, X, Sun, Moon, ShieldCheck } from "lucide-react";
 import { useTheme } from "next-themes";
 import { Link } from "react-router-dom";
 import logo from "@/assets/logo.png";
+import LazyImage from "@/components/LazyImage";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,9 +21,12 @@ const Header = () => {
       <div className="container mx-auto px-6 py-3 flex items-center justify-between">
         <a href="#" className="flex items-center" aria-label="Dev Riasat home">
           <span className="skeu-plate h-12 px-3 py-1.5">
-            <img
+            <LazyImage
               src={logo}
               alt="Dev Riasat"
+              width={240}
+              height={80}
+              priority
               className="h-full w-auto object-contain"
             />
           </span>

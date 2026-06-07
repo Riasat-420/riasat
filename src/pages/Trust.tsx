@@ -14,6 +14,7 @@ import portfolioAberas from "@/assets/portfolio-aberas.jpg";
 import portfolioFlistar from "@/assets/portfolio-flistar.jpg";
 import logo from "@/assets/logo.png";
 import profileImage from "@/assets/riasat-profile.png";
+import LazyImage from "@/components/LazyImage";
 
 const stats = [
   { value: "5+", label: "Years of Experience", icon: Briefcase },
@@ -119,7 +120,7 @@ const TrustPage = () => {
       <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
         <div className="container mx-auto px-6 py-3 flex items-center justify-between">
           <Link to="/" className="flex items-center">
-            <img src={logo} alt="Dev Riasat" className="h-10 w-auto object-contain" />
+            <LazyImage src={logo} alt="Dev Riasat" width={240} height={80} priority className="h-10 w-auto object-contain" />
           </Link>
           <Link
             to="/"
@@ -291,7 +292,7 @@ const TrustPage = () => {
                 transition={{ type: "spring" }}
                 className="w-32 h-32 rounded-full overflow-hidden border-4 border-primary/30 shadow-xl flex-shrink-0"
               >
-                <img src={profileImage} alt="Muhammad Riasat Ali" className="w-full h-full object-cover" />
+                <LazyImage src={profileImage} alt="Muhammad Riasat Ali" width={256} height={256} priority className="w-full h-full object-cover" />
               </motion.div>
               <div>
                 <motion.div
@@ -373,9 +374,11 @@ const TrustPage = () => {
                       : "h-24 bg-background/50"
                   }`}
                 >
-                  <img
+                  <LazyImage
                     src={logo.image}
                     alt={logo.name}
+                    width={logo.isLogo ? 240 : 400}
+                    height={logo.isLogo ? 96 : 240}
                     className={`transition-all duration-300 ${
                       logo.isLogo
                         ? "h-12 w-auto object-contain opacity-90 group-hover:opacity-100"
@@ -455,9 +458,11 @@ const TrustPage = () => {
                 </button>
               </div>
               <div className="p-4">
-                <img
+                <LazyImage
                   src={viewCert.image}
                   alt={`${viewCert.title} Certificate`}
+                  width={1200}
+                  height={850}
                   className="w-full rounded-xl object-contain"
                 />
               </div>

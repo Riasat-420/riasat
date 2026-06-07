@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight, X, ExternalLink } from "lucide-react";
 import { Link } from "react-router-dom";
 import { projects, type Project } from "@/data/projects";
+import LazyImage from "@/components/LazyImage";
 
 // Show only first 4 on homepage
 const featuredProjects = projects.slice(0, 4);
@@ -47,9 +48,11 @@ const PortfolioSection = () => {
               className="group relative overflow-hidden rounded-2xl bg-card cursor-pointer card-hover"
             >
               <div className="aspect-[4/3] overflow-hidden">
-                <img
+                <LazyImage
                   src={project.image}
                   alt={project.title}
+                  width={1200}
+                  height={900}
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
@@ -115,7 +118,13 @@ const PortfolioSection = () => {
               className="bg-background rounded-3xl overflow-hidden max-w-4xl w-full max-h-[90vh] overflow-y-auto shadow-2xl"
             >
               <div className="relative aspect-video">
-                <img src={selectedProject.image} alt={selectedProject.title} className="w-full h-full object-cover" />
+                <LazyImage
+                  src={selectedProject.image}
+                  alt={selectedProject.title}
+                  width={1600}
+                  height={900}
+                  className="w-full h-full object-cover"
+                />
                 <button
                   onClick={() => setSelectedProject(null)}
                   className="absolute top-4 right-4 w-10 h-10 rounded-full bg-background/90 backdrop-blur-sm flex items-center justify-center hover:bg-background transition-colors"

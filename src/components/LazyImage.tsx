@@ -1,16 +1,15 @@
 // src/components/LazyImage.tsx
 // Use this instead of <img> throughout the app.
-// It adds: loading="lazy", width/height (prevents CLS), alt enforcement, and
-// an optional fallback src for browsers that don't support WebP.
+// It adds lazy loading and supports optional width/height for layout stability.
 
 interface LazyImageProps {
-  src: string;              // path to WebP (preferred) or original image
-  alt: string;              // REQUIRED — describes the image for SEO + a11y
-  width: number;
-  height: number;
-  fallbackSrc?: string;     // original JPG/PNG for Safari < 14 (rare now)
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  fallbackSrc?: string;
   className?: string;
-  priority?: boolean;       // set true for above-the-fold images (disables lazy)
+  priority?: boolean;
 }
 
 const LazyImage = ({

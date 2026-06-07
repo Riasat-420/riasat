@@ -40,7 +40,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Preloader />
       <Header />
-      <main>
+      <main id="main-content">
         <HeroSection />
         <ServicesSection />
         <AboutSection />

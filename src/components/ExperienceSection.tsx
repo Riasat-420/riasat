@@ -2,6 +2,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Briefcase, GraduationCap, Award, Code2, ShieldCheck, X } from "lucide-react";
 import { useState } from "react";
 import oecCertificate from "@/assets/oec-certificate.jpg";
+import LazyImage from "@/components/LazyImage";
 
 const experiences = [
   {
@@ -396,9 +397,11 @@ const ExperienceSection = () => {
                 </button>
               </div>
               <div className="p-4">
-                <img
+                <LazyImage
                   src={oecCertificate}
                   alt="OEC & ICMPD Soft Skills Training Certificate – Muhammad Riasat Ali"
+                  width={1200}
+                  height={850}
                   className="w-full rounded-xl object-contain"
                 />
               </div>
