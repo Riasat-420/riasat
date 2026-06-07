@@ -1,7 +1,9 @@
 User-agent: *
 Allow: /
 
-Disallow: /seo-check
+# Block any private/admin paths if they exist
+Disallow: /api/
+Disallow: /.env
 
-Sitemap: https://riasat.lovable.app/sitemap.xml
-Sitemap: https://riasat.lovable.app/sitemap-images.xml
+# Sitemap location
+Sitemap: https://riasat.vercel.app/sitemap.xml
