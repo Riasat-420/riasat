@@ -48,6 +48,12 @@ const Header = () => {
           >
             Blog
           </Link>
+          <Link
+            to="/faq"
+            className="skeu-nav-pill text-sm text-foreground/80 hover:text-foreground"
+          >
+            FAQ
+          </Link>
         </nav>
 
         <div className="hidden md:flex items-center gap-2">
@@ -153,6 +159,13 @@ const Header = () => {
               className="text-lg text-muted-foreground hover:text-foreground transition-colors"
             >
               Blog
+            </Link>
+            <Link
+              to="/faq"
+              onClick={() => setIsOpen(false)}
+              className="text-lg text-muted-foreground hover:text-foreground transition-colors"
+            >
+              FAQ
             </Link>
             <Link
               to="/trust"
