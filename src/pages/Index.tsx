@@ -7,6 +7,7 @@ import PortfolioSection from "@/components/PortfolioSection";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import FAQSection from "@/components/FAQSection";
 import ContactSection from "@/components/ContactSection";
+import QuickAnswers from "@/components/QuickAnswers";
 import Footer from "@/components/Footer";
 import Preloader from "@/components/Preloader";
 import BackToTop from "@/components/BackToTop";
@@ -47,6 +48,7 @@ const Index = () => {
         <ExperienceSection />
         <PortfolioSection />
         <TestimonialsSection />
+        <QuickAnswers />
         <FAQSection />
         <ContactSection />
       </main>
