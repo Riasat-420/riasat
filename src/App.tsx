@@ -13,6 +13,7 @@ const PortfolioPage = lazy(() => import("./pages/Portfolio"));
 const SeoCheck = lazy(() => import("./pages/SeoCheck"));
 const Blog = lazy(() => import("./pages/Blog"));
 const BlogPost = lazy(() => import("./pages/BlogPost"));
+const FAQPage = lazy(() => import("./pages/FAQ"));
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
             <Route path="/portfolio" element={<PortfolioPage />} />
             <Route path="/seo-check" element={<SeoCheck />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/faq" element={<FAQPage />} />
             <Route path="/blog/:slug" element={<BlogPost />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
