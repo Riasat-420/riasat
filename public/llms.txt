@@ -1,0 +1,24 @@
+# Dev Riasat — Muhammad Riasat Ali
+
+> Muhammad Riasat Ali ("Dev Riasat") is a government-certified full-stack web developer based in Islamabad, Pakistan, with 5+ years of experience and 100+ delivered projects. He builds WordPress, WooCommerce, React, Next.js and Node.js websites for clients in Pakistan, the UK, Canada (especially Montreal & Quebec), Australia and Europe.
+
+## Services
+- WordPress & WooCommerce websites and stores
+- React / Next.js web apps and SaaS dashboards
+- White-label development for Pakistani marketing & SEO agencies
+- Bilingual (FR/EN) websites for Quebec cafés, jewellery shops and boutiques
+- Speed, SEO and Core Web Vitals optimization
+
+## Credentials
+- Soft Skills Training certificate — Overseas Employment Corporation (OEC) & ICMPD
+
+## Contact
+- Email: muhammadriasatali40@gmail.com
+- WhatsApp: +92 349 8088939
+- GitHub: https://github.com/Riasat-420
+
+## Key pages
+- [Home](https://riasat.lovable.app/)
+- [Portfolio](https://riasat.lovable.app/portfolio)
+- [Trust & credentials](https://riasat.lovable.app/trust)
+- [Blog — Riasat's Ravings](https://riasat.lovable.app/blog)

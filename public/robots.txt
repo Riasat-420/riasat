@@ -1,9 +1,25 @@
 User-agent: *
 Allow: /
-
-# Block any private/admin paths if they exist
+Disallow: /seo-check
 Disallow: /api/
-Disallow: /.env
 
-# Sitemap location
+# Search & AI crawlers explicitly welcome
+User-agent: Googlebot
+Allow: /
+User-agent: Bingbot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://riasat.lovable.app/sitemap.xml
+Sitemap: https://riasat.lovable.app/sitemap-images.xml
