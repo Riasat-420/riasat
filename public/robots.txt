@@ -6,4 +6,4 @@ Disallow: /api/
 Disallow: /.env
 
 # Sitemap location
-Sitemap: https://riasat.vercel.app/sitemap.xml
+Sitemap: https://riasat.lovable.app/sitemap.xml
